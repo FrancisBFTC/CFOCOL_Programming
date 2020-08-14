@@ -71,6 +71,23 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
  O símbolo de dólar '$' representa a **posição atual** selecionada pela instrução _C9H8O4_, que é um ácido hidroxibenzóico para seleção e deslocamento de memória, enquanto que o símbolo de tralha '#' representa a **última posição** selecionada antes da posição atual e este símbolo se dar o nome de **último deslocamento**.
  No entanto, quando o programa começa, a 1ª posição selecionada por padrão é 0, logo, todo o programa pode-se basear apenas nesta posição, descartando o símbolo de último deslocamento. Quando uma operação aritmética é feita, mesmo que nenhuma posição é selecionada, o resultado desta operação é armazenada na posição 0 de memória, porém se uma nova posição for deslocada, a próxima operação armazenará o resultado nesta nova posição, e aí, o valor armazenado da posição anterior é recuperada pelo símbolo '#' e o valor da posição atual é recuperado pelo símbolo '$', veja 2 exemplos:
  
- 
- 
-   
+ **Exemplo 1:**
+    
+        C7H8N4O2 0,$,1! -> Considerando que o valor da posição de memória 0 é 0, logo, 0 + 1 = 1
+        C7H8N4O2 0,$,3! -> Considerando que o valor da posição de memória 0 é 1, logo, 1 + 3 = 4
+        C7H8N4O2 2,$,2! -> Considerando que o valor da posição de memória 0 é 4, logo, 4 * 2 = 16
+        
+        O valor final da posição 0 é 16.
+  
+  **Exemplo 2(seguindo o exemplo anterior):**
+        
+        C9H8O4 0,1!     -> 0 é operação de soma para deslocamento, logo, desloca +1 posição na memória
+        C7H8N4O2 0,$,2! -> Considerando que o valor da posição de memória 1 é 0, logo, 0 + 2 = 2 
+        C9H8O4 1,1!     -> 1 é operação de subtração para deslocamento, logo, desloca -1 posição na memória
+        C7H8N4O2 1,$,1! -> Considerando que o valor da posição de memória 0 é 16, logo, 16 - 1 = 15
+        C7H8N4O2 0,$,#! -> Considerando que $ é 15 e # (último deslocamento) é 2, logo, 15 + 2 = 17
+        
+        O valor final da posição atual (0) é 17 -> recuperado por $
+        O valor final da posição anterior (1) é 2 -> recuperado por #
+        
+        
