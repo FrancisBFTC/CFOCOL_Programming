@@ -486,3 +486,5 @@ Eis aqui um "simples" Exemplo Hello World. Como em toda linguagem de programaç�
 ![](/Imagens/teste.png)
 
 Este programa apesar de ser simples, é bem interessante por um detalhe: teste de outros tipos de operações lógicas. Este programa exibe X números somados com 5, porém tudo pode mudar na mudança do 1ª argumento. O sistema salta para o Id. 1 enquanto é diferente de 50 mas aí é que entra, Enquanto a quantidade de números for diferente de 50 ou enquanto o próprio número final for diferente de 50? Pois então, o argumento com o número 2 indica a 2ª opção, porém se somar esse argumento +10, ou seja, 12, será a 1ª opção pois ele não vai comparar os valores da posição atual mas sim da posição anterior, e isso acarreta uma mudança no programa, exibindo 50 números somados com 5 e não, X números até 50. Outra mudança é alterar os argumentos para 6 ou 16, que pode exibir um número a mais no final da interação, os argumentos 4 e 14 também podem ser usados.
+
+[Saiba mais sobre outros códigos na pasta Examples](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Examples)
