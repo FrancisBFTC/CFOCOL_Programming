@@ -387,7 +387,7 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
            
   Assim como no código Assembly, a instrução _jmp_ efetua um salto incondicional para a rotina _Main_, no código CFOCOL a instrução _C20H28O3_ salta para a instrução cujo identificador é _0003_, não satisfazendo nenhuma condição pois o 1ª argumento é 0. Em Assembly utilizamos a instrução _call_ para chamar uma rotina que terá retorno, executando cada linha até achar um _ret_, quando ret é encontrado, o programa salta novamente para a chamada de origem, onde se encontra o _call_, porém o salto de retorno não é feito para a mesma linha que tem a chamada, e sim, na linha abaixo a ela, isso porque alguns registradores em Assembly trabalham para armazenar no topo da pilha o endereço da instrução abaixo da instrução do _call_, utilizando um **salto incondicional** (jmp) para o endereço da rotina chamada, executando as instruções e no retorno, o endereço armazenado pelo call é recuperado, saltando novamente para esse endereço. Em C, o mesmo processo acontece, porém a programação ocorre da forma mais abstrata, o programador apenas chama a função _Exibir()_ que executa e automaticamente retorna pra sua chamada de origem, que após vai executar a próxima função que é o _printf("\nFim do programa\n")_, claro que como o tipo da função Exibir() é _void_, nenhum valor é retornado porém a leitura do programa é retornada para o endereço da instrução. Em CFOCOL, a instrução do _0003_ é executada, efetuando outro salto incondicional para o identificador _0001_ (abaixo do 1ª salto pois se não seria um loop infinito), no identificador _0001_ exibe uma letra, vai para o próximo passo, que terá a instrução de retorno _C7H6O3_, essa instrução de retorno vai saltar novamente para a instrução "abaixo" da instrução que efetuou a chamada, na qual é a instrução de exibição de caracteres que imprimirá na tela "Fim do programa".
   
-  Isso significa que, o que possibilita a instrução de salto _C20H28O3_ em cfocol **armazenar** em pilha o endereço da instrução (como a explicação do Assembly) é o 1ª argumento, cujo argumento é 30, de 31 pra frente tudo será uma **chamada condicional** e a instrução _C7H6O3_ trabalha em conjunto para **recuperar** esse endereço da pilha e saltar novamente. Agora veremos um penúltimo exemplo de como será uma chamada condicional em CFOCOL com seus respectivos equivalentes em C e Assembly:
+  Isso significa que, o que possibilita a instrução de salto _C20H28O3_ em cfocol **armazenar** em pilha o endereço da instrução (como a explicação do Assembly) é o 1ª argumento, cujo argumento é 30, de 31 pra frente tudo será uma **chamada condicional** e a instrução _C7H6O3_ trabalha em conjunto para **recuperar** esse endereço da pilha e saltar novamente. Agora veremos um último exemplo de como será uma chamada condicional em CFOCOL com seus respectivos equivalentes em C e Assembly:
   
   **Código em CFOCOL:**
  
@@ -455,4 +455,34 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
 
 ### Programas em CFOCOL
 
+Veremos alguns programas em CFOCOL para problemas mais simples, estes programas estão na pasta **Examples** dentro deste repositório:
 
+#### Exibindo resto de uma divisão
+
+![](/Imagens/resto.png)
+
+O clássico programa em programação que consiste em identificar o resto de uma divisão, Em outras linguagens consiste em utilizar o operador _%_ para verificar se um número é divisível por outro, porém em CFOCOL acontece de uma forma onde tudo deve ser feito passo a passo: Divide o dividendo pelo divisor, pega o resultado e multiplica pelo divisor e o resultado é subtraído pelo dividendo, o resto do dividendo pelo divisor é o resultado da subtração, já que não utilizamos variáveis é necessário utilizar as instruções de deslocamento. Como não utilizamos _saltos_, os identificadores podem ser zero, pois eles só servem pra identificar uma determinada instrução durante os saltos.
+
+#### Fatorial de um número
+
+![](/Imagens/fator.png)
+
+Outro clássico é identificar o Fatorial de um número. Este programa em outras linguagens é utilizado um loop recursivo _Fatorial(n) = n * Fatorial(n-1)_ . A mesma lógica em CFOCOL pode ser utilizado usando chamadas condicionais & retornos manipulados, porém neste exemplo usamos apenas os saltos condicionais e os deslocamento de memória onde usamos 2 posições diferentes de memória: Uma para decrementar o valor e outra para armazenar os resultados das multiplicações.
+
+#### Símbolos da Tabela ASCII
+
+![](/Imagens/ascii.png)
+
+Que tal exibir todos os símbolos da tabela ascii em cfocol? Isto pode ser necessário para relembrar os caracteres desta tabela e também o programa pode ser adaptado para exibir as diversas representações desses símbolos como: Hexadecimal, Binário, Octal e Decimal, porém é necessário muita cafeína no organismo para concretizar tal operação. No entanto, exibir os 256 caracteres da Tabela ASCII é bem simples: basta incrementar um valor de uma posição de memória e ir exibindo até que a condição de um salto seja verdadeira, ou seja, até que o determinado valor chegue a 256.
+
+#### Hello World de Operações aritméticas
+
+![](/Imagens/helloworld.png)
+
+Eis aqui um "simples" Exemplo Hello World. Como em toda linguagem de programação, existe uma forma de entrar nela conhecendo os primeiros programas Hello World, em CFOCOL não é diferente. Por mais que é possível exibir uma frase normal através da instrução de impressões, podemos brincar um pouco exibindo caracteres de forma calculada. Isso é até importante no caso de armazenar Strings em memória, pois esta String pode ser armazenada caractere por caractere em formato decimal calculadamente de forma estática ou dinâmica, podendo até construir sistemas complexos de criptografia.
+
+#### Programa soma de 5
+
+![](/Imagens/teste.png)
+
+Este programa apesar de ser simples, é bem interessante por um detalhe: teste de outros tipos de operações lógicas. Este programa exibe X números somados com 5, porém tudo pode mudar na mudança do 1ª argumento. O sistema salta para o Id. 1 enquanto é diferente de 50 mas aí é que entra, Enquanto a quantidade de números for diferente de 50 ou enquanto o próprio número final for diferente de 50? Pois então, o argumento com o número 2 indica a 2ª opção, porém se somar esse argumento +10, ou seja, 12, será a 1ª opção pois ele não vai comparar os valores da posição atual mas sim da posição anterior, e isso acarreta uma mudança no programa, exibindo 50 números somados com 5 e não, X números até 50. Outra mudança é alterar os argumentos para 6 ou 16, que pode exibir um número a mais no final da interação, os argumentos 4 e 14 também podem ser usados.
