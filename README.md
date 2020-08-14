@@ -330,9 +330,16 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
                  loop:
                     mov al, '0'
                     int 10h
+                    mov al, ' '
+                    int 10h
                     inc cl
                     cmp cl, 10
                     jne loop
                     
    
+  Nestes códigos exemplos, nós incrementamos um valor mas exibimos outro, ou seja, uma variável em C é incrementada e utilizada na condição e a outra variável é exibida mas nunca incrementada, no total de 10 vezes. No Assembly a mesma coisa é feita, cl é incrementado e comparado mas o que é exibido é o que está em al que é o char '0'. Tudo isso se trata de exibir um valor diferente daquele que é o incremento, pois o valor de incremento só é utilizado como _contador_ de um programa, em CFOCOL não é diferente, podemos ter inúmeros valores pra exibir em posições de memória totalmente distintas e utilizando um contador individual de incremento. Por enquanto, tudo parece simples, pois temos um programa menor, mas como a própria frase de Alan perling diz sobre as linguagens Turing Tarpit: "Cuidado com o Turing Tarpit, onde tudo é possível mas nada de interessante é fácil". Isso quer dizer que, quanto maior for a necessidade do nosso programa, maior é a quantidade de variáveis diferentes a ser utilizadas e mais complexo será o programa em CFOCOL pois não existem variáveis em CFOCOL, e aí, uma tremenda gambiarra de operações aritméticas + deslocamento de memória deve ser feita para alcançar tal propósito, muito café deve estar armazenado no organismo para atingir tal privilégio porque não é impossível, mas é difícil. Então tudo isso, pode alimentar a teoria de que os limites das possibilidades de um método funcional pode ser testado, a fim de chegar numa conclusão de como um programa "quase-primordial" pode simular na vida real. CFOCOL não é uma linguagem Turing Completa, mesmo adotando algumas características, mas chega perto dessa categoria mesclados com conceitos imperativos de programação. 
   
+Então, nosso próximo passo é substituir a **operação de salto** por **operação de chamada**, mas não vamos substituir a instrução em si que é o cafestol, manteremos esta instrução e a única coisa que vamos substituir é um único argumento - O primeiro. Como além de orientação a cafeína, é uma linguagem orientada a argumentos, vamos começar a chamar as instruções condicionalmente com retornos manipulados ou não pelo interpretador, tal retorno será o ácido hidroxibenzóico _C7H6O3_ e também veremos sobre os códigos equivalentes em C e Assembly, primeiro vamos ver como funciona as chamadas incondicionais em CFOCOL:
+
+
+       
