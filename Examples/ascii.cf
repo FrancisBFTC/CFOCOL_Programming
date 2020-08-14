@@ -1,0 +1,6 @@
+cup:
+0000: C8H10N4O2 ,$, ! 	"exibe um char"
+0001: C7H8N4O2 0,$,1!   "soma +1 no char"
+0002: C20H28O3 2,0000,256! "salta pro 1ª id. até que chars seja 256"
+0003: C8H10N4O2 %%,<$>, caracteres da tabela ASCII! "exibe numero decimal de chars"
+;

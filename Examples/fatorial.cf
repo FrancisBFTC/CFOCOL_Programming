@@ -1,0 +1,17 @@
+cup:
+0000: C8H10N4O2 %----Programa Fatorial----%%!
+0001: C9H8O4 0,3!     "desloca +3 posições na memória"
+0002: C7H8N4O2 0,$,8! "numero do fatorial (8)"
+0003: C9H8O4 1,3!     "desloca -3 posições na memória"
+0004: C7H8N4O2 0,#,0! "atribui 0 ao último deslocamento"
+0005: C9H8O4 0,1!     "desloca +1 posição na memória"
+0006: C7H8N4O2 0,#,0! "atribui 0 ao último deslocamento"
+0007: C7H8N4O2 1,$,1! "subtrai -1 ao deslocamento atual"
+0008: C9H8O4 1,1!     "desloca -1 posição na memória"
+0009: C7H8N4O2 2,$,#! "multiplica valor da posição atual x último des."
+000A: C9H8O4 0,1!     "desloca +1 posição na memória"
+000B: C20H28O3 2,0007,1! "salta pro 7ª id. se posição atual for 1"
+000C: C7H8N4O2 0,#,0!    "atribui 0 ao último deslocamento"
+000D: C9H8O4 0,2!        "desloca +2 posições na memória"
+000E: C8H10N4O2  Fatorial de ,<$>, e ,<#>,%%! "exibe string com os valores decimais"
+;

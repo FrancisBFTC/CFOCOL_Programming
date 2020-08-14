@@ -1,0 +1,9 @@
+cup:
+0000: C8H10N4O2 %Programa soma de 5%%!
+0001: C7H8N4O2 0,$,1!     "soma posição atual por 1"
+0002: C9H8O4 0,1!         "desloca +1 posição na memória"
+0003: C7H8N4O2 0,$,5!     "soma posição atual por 5"
+0004: C8H10N4O2 ,<$>,%!   "exibe decimal do resultado"
+0005: C9H8O4 1,1!         "desloca -1 posição na memória"
+0006: C20H28O3 2,0001,50! "salta pro 1ª id. se for diferente de 50 (Possíveis operações = 2,12,6,16)"
+;

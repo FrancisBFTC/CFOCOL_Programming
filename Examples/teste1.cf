@@ -1,0 +1,16 @@
+cup:
+0000: C8H10N4O2 %Teste chamada de Instrucao%%!
+0001: C7H8N4O2 0,$,0!         "atribui 0 a posição atual"
+0002: C20H28O3 0,11,0!        "salto incondicional pro 11ª id."
+0003: C7H8N4O2 0,$,1!         "soma posição atual com 1"
+0004: C8H10N4O2 A !           "exibe a vogal A"
+0005: C7H6O3 1,$!             "retorno com deslocamento do resultado subtraído"
+0006: C20H28O3 0,12,0!        "salto incondicional pro 12ª id."
+0007: C8H10N4O2 B !           "exibe a vogal B"
+0008: C7H6O3 0,0!             "retorno normal"
+0009: C8H10N4O2 C !           "exibe a vogal C"
+000A: C7H6O3 0,0!             "retorno normal"
+000B: C20H28O3 30,3,0!         "chamada incondicional pro 3ª id. com retorno"
+000C: C20H28O3 30,7,0!         "chamada incondicional pro 7ª id. com retorno"
+000D: C20H28O3 30,4,0!         "chamada incondicional pro 4ª id. com retorno"
+;

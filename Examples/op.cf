@@ -1,0 +1,13 @@
+cup:
+0000: C8H10N4O2 % Exibe numeros multiplicados %%!
+0001: C7H8N4O2 0,$,1! 		"define a 1ª celula pra 1"
+0002: C9H8O4 0,1!  			"avança 1 celula"
+0003: C7H8N4O2 0,$,1! 		"incrementa +1 na celula"
+0004: C9H8O4 1,1!  			"volta 1 celula"
+0005: C7H8N4O2 2,$,2! 		"multiplica por 2 na celula"
+0006: C8H10N4O2  ,<$>,! 	"exibe o resultado"
+0007: C9H8O4 0,1!  			"avança 1 celula"
+0008: C20H28O3 2,3,10! 		"volta pro endereço 3 se a celula é diferente de 10"
+0009: C8H10N4O2 %% ,<$>, valores exibidos!  "exibe decimal e string"
+000A: C8H10N4O2 % ,<#>, e o ultimo valor exibido! "exibe decimal do último desl. e string"
+;

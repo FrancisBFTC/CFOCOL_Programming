@@ -1,0 +1,11 @@
+cup:
+0000: C9H8O4 0,1!    "desloca +1 posição na memória"
+0000: C7H8N4O2 0,35! "atribui 35 a posição"
+0000: C9H8O4 1,1!    "desloca -1 posição na memória"
+0000: C7H8N4O2 3,#,3! "divide o valor do último desl. por 3"
+0000: C7H8N4O2 2,$,3! "multiplica o valor da posição atual por 3"
+0000: C8H10N4O2 resto de ,<#>,/3=! "exibe string inicial"
+0000: C9H8O4 0,1!      "desloca +1 posição na memória"
+0000: C7H8N4O2 1,$,#!  "subtrai o valor da posição atual por último desl."
+0000: C8H10N4O2 ,<$>,%! "exibe decimal do resto da divisao"
+;
