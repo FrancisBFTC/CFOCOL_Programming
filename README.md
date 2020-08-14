@@ -344,13 +344,13 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
 
 **Código em CFOCOL:**
  
-            cup:
-                 0000: C20H28O3 0,0003,10!                   -> Salto incondicional para a instrução 0003
-                 0001: C8H10N4O2 A!                          -> Exibe a letra A 
-                 0002: C7H6O3 0,0!                           -> Retorna a chamada de origem
-                 0003: C20H28O3 30,0001,0!                   -> Chama a instrução 0001 (Chamada de origem)
-                 0004: C8H10N4O2 %Fim do programa%!          -> Exibe "Fim do programa" com quebra de linha no Início e Final
-             ;
+           cup:
+                0000: C20H28O3 0,0003,0!                    -> Salto incondicional para a instrução 0003
+                0001: C8H10N4O2 A!                          -> Exibe a letra A 
+                0002: C7H6O3 0,0!                           -> Retorna a chamada de origem
+                0003: C20H28O3 30,0001,0!                   -> Chama a instrução 0001 (Chamada de origem)
+                0004: C8H10N4O2 %Fim do programa%!          -> Exibe "Fim do programa" com quebra de linha no Início e Final
+           ;
  
  **Código em C:**
  
@@ -378,4 +378,10 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
               jmp END
            String db 13,10,"Fim do programa",13,10,0
            
+  Assim como no código Assembly, a instrução _jmp_ efetua um salto incondicional para a rotina _Main_, no código CFOCOL a instrução _C20H28O3_ salta para a instrução cujo identificador é _0003_, não satisfazendo nenhuma condição pois o 1ª argumento é 0. Em Assembly utilizamos a instrução _call_ para chamar uma rotina que terá retorno, executando cada linha até achar um _ret_, quando ret é encontrado, o programa salta novamente para a chamada de origem, onde se encontra o _call_, porém o salto de retorno não é feito para a mesma linha que tem a chamada, e sim, na linha abaixo a ela, isso porque alguns registradores em Assembly trabalham para armazenar no topo da pilha o endereço da instrução abaixo da instrução do _call_, utilizando um **salto incondicional** (jmp) para o endereço da rotina chamada, executando as instruções e no retorno, o endereço armazenado pelo call é recuperado, saltando novamente para esse endereço. Em C, o mesmo processo acontece, porém a programação ocorre da forma mais abstrata, o programador apenas chama a função _Exibir()_ que executa e automaticamente retorna pra sua chamada de origem, que após vai executar a próxima função que é o _printf("\nFim do programa\n")_, claro que como o tipo da função Exibir() é _void_, nenhum valor é retornado porém a leitura do programa é retornada para o endereço da instrução. Em CFOCOL, a instrução do _0003_ é executada, efetuando outro salto incondicional para o identificador _0001_ (abaixo do 1ª salto pois se não seria um loop infinito), no identificador _0001_ exibe uma letra, vai para o próximo passo, que terá a instrução de retorno _C7H6O3_, essa instrução de retorno vai saltar novamente para a instrução "abaixo" da instrução que efetuou a chamada, na qual é a instrução de exibição de caracteres que imprimirá na tela "Fim do programa".
   
+  Isso significa que, o que possibilita a instrução de salto _C20H28O3_ em cfocol **armazenar** em pilha o endereço da instrução (como a explicação do Assembly) é o 1ª argumento, cujo argumento é 30, de 31 pra frente tudo será uma **chamada condicional** e a instrução _C7H6O3_ trabalha em conjunto para **recuperar** esse endereço da pilha e saltar novamente. Agora veremos um penúltimo exemplo de como será uma chamada condicional em CFOCOL com seus respectivos equivalentes em C e Assembly:
+  
+   
+  
+ 
