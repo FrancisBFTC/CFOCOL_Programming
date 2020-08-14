@@ -102,15 +102,88 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
   
    Considerando este exemplo, '$' sempre vai referenciar a posição cujo resultado da posição é igual a posição anterior calculada com o número de posição atual (exceto na 1ª vez que o deslocamento é acionado), enquanto que '#' vai referenciar a mesma posição que '$' assumía anteriormente. Mas vamos considerar que queremos fazer uma operação e utilizar o resultado como um deslocamento, isso é possível, veja nos seguintes exemplos:
    
-        C9H8O4 0,5!  -> $ referencía o valor da posição 5
+        C9H8O4 0,5!     -> $ referencía o valor da posição 5
         C7H8N4O2 0,$,2! -> soma o valor da posição 5 (0) + 2 e $ referencía o valor 2
-        C9H8O4 0,$!  -> $ referencía o valor da posição 7, pois 5 + 2 = 7
-        C9H8O4 1,#!  -> $ referencía o valor da posição 5, pois 7 - 2 = 5 (# = 2)
+        C9H8O4 0,$!     -> $ referencía o valor da posição 7, pois 5 + 2 = 7
+        C9H8O4 1,#!     -> $ referencía o valor da posição 5, pois 7 - 2 = 5 (# = 2)
         C7H8N4O2 0,$,3! -> soma o valor da posição 5 (2) + 3 e $ referencía o valor 5
-        C9H8O4 1,$!  -> $ referencía o valor da posição 0, pois 5 - 5 = 0
+        C9H8O4 1,$!     -> $ referencía o valor da posição 0, pois 5 - 5 = 0
         
         Resultado final: $ = 0 (valor e posição)
                          # = 5 (valor e posição)
                          
                          
        
+  Após compreendermos sobre as operações aritméticas e seleções de memória, vamos entender como funciona a cafeína, que é a instrução para **Impressão de caracteres**. Existem 3 maneiras para imprimir caracteres:
+  
+        1ª - Utilizar strings estáticas
+        2ª - Utilizar posições de memória
+        3ª - Utilizar strings estáticas + posições de memória
+    
+A 1ª opção é feito de um modo muito simples utilizando o alcalóide de cafeína _C8H10N4O2_ para imprimir caracteres:
+
+        C8H10N4O2 Hello World!  -> Isto exibe um Hello World na tela
+        
+As strings não necessitam ser colocadas em aspas duplas como na maioria das linguagens de alto-nível, também pode-se adicionar uma ou mais quebras de linhas através do símbolo '%':
+
+        C8H10N4O2 Hello World%%!  -> Isto exibe um Hello World na tela com 2 quebras de linhas após a exibição
+        
+Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, só adicionar um espaço:
+
+        C8H10N4O2 1 !  -> Exibe o 1 com espaço
+        C8H10N4O2 2 !  -> Exibe o 2 com espaço
+        C8H10N4O2 3 !  -> Exibe o 3 com espaço
+        
+      Resultado: 1 2 3 
+      
+  Agora, a 2ª opção é um pouco mais complicado, porém ainda é simples. Pra exibir valores de posições de memória, é preciso conhecer os símbolos $, #, ',,' e <>, como os 2 primeiros símbolos já conhecemos, então vamos para os 2 últimos. Considerando que aconteceu uma operação aritmética onde foi armazenado o valor 65 na posição atual e quero exibir o decimal 65 na tela, eu preciso usar o símbolo de posição atual $ entre os símbolos <>, porém entre vírgulas, veja o exemplo:
+  
+         C7H8N4O2 0,$,65!  -> soma 0 + 65 = 65 e armazena o resultado na posição 0
+         C8H10N4O2 ,<$>,!  -> Exibe o decimal 65
+         
+ Considerando que eu quero exibir uma letra, um caractere... Então eu descarto os símbolos <> e utilizo apenas o $ e as vírgulas:
+ 
+         C7H8N4O2 0,$,65!  -> soma 0 + 65 = 65 e armazena o resultado na posição 0
+         C8H10N4O2 ,$,!    -> Exibe o caractere 'A' (em maiúsculo), A = 65 em decimal
+         
+  Pra exibir o caractere 'a' minúsculo é preciso utilizar o decimal 97:
+  
+         C7H8N4O2 0,$,97!  -> soma 0 + 97 = 97 e armazena o resultado na posição 0
+         C8H10N4O2 ,$,!    -> Exibe o caractere 'a' (em minúsculo), a = 97 em decimal
+      
+  Já deu pra perceber que pra exibir caracteres da memória é preciso conhecer a tabela ASCII, especialmente, valores decimais. Os símbolos $ entre <> se trata de impressões de inteiros da memória enquanto que o símbolo $ sem <> se trata de impressões de símbolos de caracteres da tabela ASCII em decimal, mas e as vírgulas? Então, as vírgulas servem para **delimitar** endereços com strings, ou seja, ora utilizando strings na exibição será concatenações, ora NÃO utilizando strings será apenas uma delimitação, pois isso evita de ocorrer erros caso houver um espaço antes do $ ou depois do $, isto porque "espaços" são strings.
+  
+  Agora vai um exemplo de concatenação de strings com as posições atuais:
+  
+          C7H8N4O2 0,$,97!                     -> soma 0 + 97 = 97 e armazena o resultado na posição 0
+          C8H10N4O2 Exibindo a letra ',$,'!    -> Exibe o caractere a com aspas simples
+          C8H10N4O2 Exibindo a letra ,$,!      -> Exibe o caractere a sem aspas simples
+          
+          Resultado:
+              Exibindo a letra 'a'
+              Exibindo a letra a
+             
+   É possível **duplicar** a exibição, repetindo o símbolo de posição atual (seguindo o exemplo anterior):
+   
+           C8H10N4O2 Exibindo a letra ,$$$,!  -> Exibe a string "Exibindo a letra aaa"
+   
+   O único problema que, entre as vírgulas, não é possível adicionar espaços, logo só é possível se houver outra concatenação, exemplo:
+   
+           C8H10N4O2 Exibindo a letra: ,$, ,$, ,$,!  -> Exibe a string "Exibindo a letra: a a a"
+           
+   Não é só com a posição atual que é possível exibir números/letras, o símbolo # de _último deslocamento_ pode ser utilizado pra ser exibido, contanto que tenha havido algum deslocamento antes desta exibição, exemplo:
+   
+           C7H8N4O2 0,$,97! -> Atribui ao primeiro endereço o valor 97 ('a' em decimal)
+           C9H8O4 0,1!      -> 1ª deslocamento para a direita (somando +1)
+           C7H8N4O2 0,$,98! -> Atribui ao segundo endereço o valor 98 ('b' em decimal)
+           C9H8O4 1,1!      -> 2ª deslocamento para a esquerda (subtraindo -1)
+           C8H10N4O2 1ª Valor: ,$, % 2ª Valor: ,#, %!      -> Exibe strings com os caracteres de $ e #
+           C8H10N4O2 1ª Valor: ,<$>, % 2ª Valor: ,<#>, %!  -> Exibe strings com os decimais de $ e #
+           
+         Resultado:
+              1ª Valor: a
+              2ª Valor: b
+              1ª Valor: 97
+              2ª Valor: 98
+              
+    
