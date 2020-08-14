@@ -68,7 +68,7 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
  Então, já deu pra perceber que do 2ª argumento para frente é relacionado aos números que serão operados, o tipo de operação é determinada pelo 1ª argumento, assim como as fórmulas químicas tradicionais que conhecemos que tem suas representações numéricas separadas por vírgulas.
  No lugar de números, os argumentos também podem ser **Endereços**, que são chamadas de **Posições**. Existem 2 possíveis posições que podem ser acessadas simultaneamente: '$' e '#' (sem aspas). 
  
- O símbolo de dólar '$' representa a **posição atual** selecionada pela instrução _C9H8O4_, que é um ácido hidroxibenzóico para seleção e deslocamento de memória, enquanto que o símbolo de tralha '#' representa a **última posição** selecionada antes da posição atual e este símbolo se dar o nome de **último deslocamento**.
+ O símbolo de dólar '$' representa a **posição atual** selecionada pela instrução _C9H8O4_, que é um ácido cafeico para seleção e deslocamento de memória, enquanto que o símbolo de tralha '#' representa a **última posição** selecionada antes da posição atual e este símbolo se dar o nome de **último deslocamento**.
  No entanto, quando o programa começa, a 1ª posição selecionada por padrão é 0, logo, todo o programa pode-se basear apenas nesta posição, descartando o símbolo de último deslocamento. Quando uma operação aritmética é feita, mesmo que nenhuma posição é selecionada, o resultado desta operação é armazenada na posição 0 de memória, porém se uma nova posição for deslocada, a próxima operação armazenará o resultado nesta nova posição, e aí, o valor armazenado da posição anterior é recuperada pelo símbolo '#' e o valor da posição atual é recuperado pelo símbolo '$', veja 2 exemplos:
  
  **Exemplo 1:**
@@ -187,3 +187,62 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
               2ª Valor: 98
               
     
+  Veremos agora sobre um dos tipos de diterpenos chamado **_Cafestol_** e o **_ácido hidroxibenzóico_** que faz parte dos **_ácidos orgânicos_** (da mesma família que o ácido cafeico), ambos são utilizados no café e vai nos dar muita energia cerebral ao programar esses elementos... Pois bem, o cafestol _C20H28O3_ é uma instrução para saltos condicionais/incondicionais e chamadas condicionais/incondicionais. Apenas a instrução de salto pode fazer a condição e se for verdadeira, ela salta para um endereço chamado **identificador** (termos do CFOCOL), a mesma coisa é a chamada, na qual é a mesma instrução cafestol, a diferença é que na chamada ela salta se for verdadeiro, executa a instrução e quando identifica o ácido hidroxibenzóico _C7H6O3_, o interpretador retorna para a chamada de origem, ou seja, 1 linha a mais da instrução que chamou a outra instrução. No entanto, os saltos e as chamadas podem ser **incondicionais**, ou seja, não necessitando de uma condição. A partir de agora, iremos utilizar os identificadores nos exemplos e os códigos equivalentes em C, primeiramente vamos ver quais argumentos que especifica um salto ou uma chamada:
+  
+   #### 1ª Argumento (Saltos):
+              
+              Operações lógicas da posição atual $:
+            
+               0 -> Salto incondicional
+               1 -> Salta se for igual
+               2 -> Salta se for diferente
+               3 -> Salta se for maior
+               4 -> Salta se for menor
+               5 -> Salta se for maior ou igual
+               6 -> Salta se for menor ou igual
+               7 -> Salta se AND deu verdadeiro
+               8 -> Salta se OR deu verdadeiro
+               9 -> Salta se for diferente de 0
+               10 -> Salta se for igual a 0
+               
+             Operações lógicas da posição anterior #:
+            
+               11 -> Salta se for igual
+               12 -> Salta se for diferente
+               13 -> Salta se for maior
+               14 -> Salta se for menor
+               15 -> Salta se for maior ou igual
+               16 -> Salta se for menor ou igual
+               17 -> Salta se AND deu verdadeiro
+               18 -> Salta se OR deu verdadeiro
+               19 -> Salta se for diferente de 0
+               20 -> Salta se for igual a 0
+                
+   #### 1ª Argumento (Chamadas):
+              
+              Operações lógicas da posição atual $:
+            
+               30 -> Chamada incondicional
+               31 -> Chama se for igual
+               32 -> Chama se for diferente
+               33 -> Chama se for maior
+               34 -> Chama se for menor
+               35 -> Chama se for maior ou igual
+               36 -> Chama se for menor ou igual
+               37 -> Chama se AND deu verdadeiro
+               38 -> Chama se OR deu verdadeiro
+               39 -> Chama se for diferente de 0
+               40 -> Chama se for igual a 0
+               
+             Operações lógicas da posição anterior #:
+            
+               41 -> Chama se for igual
+               42 -> Chama se for diferente
+               43 -> Chama se for maior
+               44 -> Chama se for menor
+               45 -> Chama se for maior ou igual
+               46 -> Chama se for menor ou igual
+               47 -> Chama se AND deu verdadeiro
+               48 -> Chama se OR deu verdadeiro
+               49 -> Chama se for diferente de 0
+               50 -> Chama se for igual a 0
