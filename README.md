@@ -90,4 +90,27 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
         O valor final da posição atual (0) é 17 -> recuperado por $
         O valor final da posição anterior (1) é 2 -> recuperado por #
         
+  O Ácido orgânico _C9H8O4_ é uma instrução para deslocamento de memória. Antes dela ser utilizada, a posição atual da memória é 0, porém, após ser utilizada, a posição pode assumir qualquer valor, exemplo: O 1ª argumento desta instrução pode ser 0 ou 1, 0 para soma de deslocamento e 1 para subtração de deslocamento; O 2ª argumento está relacionado ao número de operação para deslocamento, se for 1, deslocará 1 posição na memória, se for 2, 2 posições na memória, se for 5, vai deslocar 5 posições na memória, etc... o deslocamento irá pra frente se o 1ª argumento for 0 e o deslocamento irá pra trás se o 1ª argumento for 1. No entanto, só é possível utilizar o máximo de 2 argumentos nesta instrução, diferente de outras instruções que utiliza de 3 argumentos pra mais. No momento que a instrução de deslocamento é utilizada, a devida posição é selecionada, permitindo que operações aritméticas agem em cima destas posições, incluindo saltos condicionais/incondicionais. 
+  
+  Já que em CFOCOL não existem variáveis, a intenção é testar até onde será o limite das aplicações utilizando apenas 2 endereços simultaneamente por vez, então vamos dar um exemplo de várias seleções de memória:
+  
+       C9H8O4 0,5!  -> $ referencía o valor da posição 5
+       C9H8O4 1,4!  -> $ referencía o valor da posição 1 (5-4=1) e # referencía o valor da posição 5
+       C9H8O4 0,3!  -> $ referencía o valor da posição 4 (1+3=4) e # referencía o valor da posição 1
+       C9H8O4 1,4!  -> $ referencía o valor da posição 0 (4-4=0) e # referencía o valor da posição 4
         
+  
+   Considerando este exemplo, '$' sempre vai referenciar a posição cujo resultado da posição é igual a posição anterior calculada com o número de posição atual (exceto na 1ª vez que o deslocamento é acionado), enquanto que '#' vai referenciar a mesma posição que '$' assumía anteriormente. Mas vamos considerar que queremos fazer uma operação e utilizar o resultado como um deslocamento, isso é possível, veja nos seguintes exemplos:
+   
+        C9H8O4 0,5!  -> $ referencía o valor da posição 5
+        C7H8N4O2 0,$,2! -> soma o valor da posição 5 (0) + 2 e $ referencía o valor 2
+        C9H8O4 0,$!  -> $ referencía o valor da posição 7, pois 5 + 2 = 7
+        C9H8O4 1,#!  -> $ referencía o valor da posição 5, pois 7 - 2 = 5 (# = 2)
+        C7H8N4O2 0,$,3! -> soma o valor da posição 5 (2) + 3 e $ referencía o valor 5
+        C9H8O4 1,$!  -> $ referencía o valor da posição 0, pois 5 - 5 = 0
+        
+        Resultado final: $ = 0 (valor e posição)
+                         # = 5 (valor e posição)
+                         
+                         
+       
