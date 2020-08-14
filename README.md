@@ -382,6 +382,70 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
   
   Isso significa que, o que possibilita a instrução de salto _C20H28O3_ em cfocol **armazenar** em pilha o endereço da instrução (como a explicação do Assembly) é o 1ª argumento, cujo argumento é 30, de 31 pra frente tudo será uma **chamada condicional** e a instrução _C7H6O3_ trabalha em conjunto para **recuperar** esse endereço da pilha e saltar novamente. Agora veremos um penúltimo exemplo de como será uma chamada condicional em CFOCOL com seus respectivos equivalentes em C e Assembly:
   
+  **Código em CFOCOL:**
+ 
+           cup:
+                0000: C20H28O3 0,0004,0!                    -> Salto incondicional para a instrução 0004
+                0001: C7H8N4O2 0,$,1!                       -> incrementa +1 no valor
+                0002: C8H10N4O2 A !                         -> Exibe a letra A 
+                0003: C7H6O3 1,1!                           -> Retorna para o "endereço de chamada" -1
+                0004: C8H10N4O2 %Exibindo letras%%!         -> Exibe uma string
+                0005: C20H28O3 34,0001,10!                  -> Chama a instrução 0001 se valor for menor que 10
+                0006: C8H10N4O2 %%Fim do programa%!         -> Exibe "Fim do programa" com quebra de linha no Início e Final
+           ;
+ 
+ **Código em C:**
+ 
+           void Exibir(){
+               printf("A ");
+           }
+           int main(void){
+             printf("\nExibindo letras\n\n");
+             for(int i = 0; i < 10; i++)
+                Exibir();
+                
+             printf("\nFim do programa\n");
+             return 0;
+           }
+
+**Código em Assembly:**
+
+           jmp Main
+           Exibir:
+              mov ah, 0Eh
+              mov al, 'A'
+              int 10h
+              mov al, ' '
+              int 10h
+           ret
+           Main:
+              mov si, StringIni
+              call PrintString
+              mov cl, 0
+              loop:
+                  inc cl
+                  call Exibir
+                  cmp cl, 10
+                  jb loop
+                  mov si, StringEnd
+                  call PrintString
+              jmp END
+           StringIni db 13,10,"Exibindo letras",13,10,13,10,0
+           StringEnd db 13,10,13,10,"Fim do programa",13,10,0
+  
    
   
- 
+ Para enfatizarmos melhor o exemplo, vamos utilizar 3 novos métodos: 
+         
+         1. O primeiro argumento da instrução 0005 é alterado de 30 para 34 (chama se for menor);
+         2. Usamos uma operação aritmética para incrementar valor no endereço;
+         3. O retorno _C7H6O3_ recebe 2 novos tipos de argumentos;
+         
+   O 1ª argumento da instrução _C20H28O3_ sendo 30, seria uma chamada incondicional, mas sendo acima desse valor, Ex.: 31,32,etc.. seria uma chamada condicional, cada valor se refere a um tipo de condição (Como vimos anteriormente), então após a instrução no Id. 0000 chamar a instrução 0004 (que vai exibir "Exibir letras"), o próximo passo será saltar para a instrução no Id. 0001 se o valor da posição atual de memória for menor que 10, satisfazendo a condição, a instrução no Id. 0001 vai somar 0 + 1 na posição de memória, já que o início do valor é 0 por padrão, Na posição 0 agora tendo o valor 1, o próximo passo é executado exibindo a letra A com espaço e após, a instrução de retorno _C7H6O3_ vai retornar para a Instrução 0005 (chamada) + 1, que é 0006, isso se os argumentos da instrução de retorno fosse 0, porém algo mudou, vemos que é "C7H6O3 1,1!". Isso significa que o 1ª argumento da instrução de retorno vai simbolizar a operação: se for 0 é soma, se for 1 é subtração; E o 2ª argumento vai ser o número de deslocamento de retorno, Exemplo: Se naturalmente os argumentos sendo 0, a instrução retornava para o Id. 0006 (0005 + 1), os argumentos sendo "1,1", vai subtrair o deslocamento -1, ou seja, se era 0006, será 0005, exatamente na mesma instrução que efetua a chamada, re-executando a instrução novamente. Se os argumentos fossem 1,3 por exemplo, iria subtrair o deslocamento -3 (0006 - 3 = 0003). Se o primeiro argumento fosse 0, logo iria somar 0006 + 3 = 0009 (esse identificador não existe no código), portanto iria dar erro, retornando para um identificador que não existe.
+   
+   Todo esse programa constrói um Loop de repetição onde o retorno da chamada que define esse loop, isso vai depender dos seus argumentos. E aí, a junção de hidroxibenzóico + cafestol, usando argumentos certos, poderá construir inúmeros tipos de loops For, do, While e chamada de funções equivalentes em C, e saltos condicionais je, jne, jb,ja,etc.. + instruções CALLs equivalentes em Assembly. Perceba também que a String "Exibindo letras" só é imprimida uma vez no programa (primeira vez), pois durante a iteração do loop, a instrução de retorno é chamado antes da instrução de impressão.
+
+
+### Programas em CFOCOL
+
+
