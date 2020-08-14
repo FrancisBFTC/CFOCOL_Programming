@@ -273,7 +273,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
               
    No código em CFOCOL, o identificador 0001 tem a instrução _C20H28O3_ com o 1ª argumento 0 (salto incondicional), na qual ele salta para o identificador 0000 que está com a instrução de exibição de caracteres _C8H10N4O2_, porém se é incondicional significa que o 3ª argumento é inútil, pois não é utilizado na condição, logo, o 3ª argumento deve ser 0, pois o mínimo de argumentos nessas instruções são 3 (mesmo sendo inútil), é claro que em outras versões vamos alterar essa funcionalidade, removendo o 3ª argumento em situações incondicionais.
    
- Por enquanto, o interpretador funciona apenas para o 1ª Bottle cup, ou seja, não é possível chamar instruções de outros Bottles utilizando o sinal _ '_' _, como: _@Bottle1_0000_, isto vamos implementar na 2ª versão do interpretador. Então agora veremos outra situação que é um salto condicional, comparando o valor da posição de memória atual com 10, enquanto não for, ele saltará para a instrução:
+ Por enquanto, o interpretador funciona apenas para o 1ª Bottle cup, ou seja, não é possível chamar instruções de outros Bottles utilizando o sinal '_', como: _@Bottle1_0000_, isto vamos implementar na 2ª versão do interpretador. Então agora veremos outra situação que é um salto condicional, comparando o valor da posição de memória atual com 10, enquanto não for, ele saltará para a instrução:
  
  **Código em CFOCOL:**
  
