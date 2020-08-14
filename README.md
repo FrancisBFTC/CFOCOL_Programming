@@ -246,3 +246,93 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
                48 -> Chama se OR deu verdadeiro
                49 -> Chama se for diferente de 0
                50 -> Chama se for igual a 0
+               
+   Como vimos, todos esses números se trata das funcionalidades dos saltos e chamadas apenas do 1ª argumento da instrução _C20H28O3_, os saltos são de 0 à 20 e as chamadas são de 30 a 50, a condição irá fazer uma operação lógica do valor da posição de memória (seja ela atual ou anterior dependendo do valor do 1ª argumento) com o 3ª argumento que poderá ser um número estático ou uma própria posição de memória, se a condição for satisfeita, a instrução vai utilizar o 2ª argumento para saltar para o valor desse argumento, que será nosso identificador, então vamos ver na prática um salto incondicional para o 1ª identificador (loop infinito), desta vez no Bottle principal "cup" (copo):
+   
+     
+  **Código em CFOCOL:**
+  
+             cup:
+                 0000: C8H10N4O2 Tomando café eternamente%!  -> Exibe uma string com quebra de linha no identificador 0000
+                 0001: C20H28O3 0,0000,0!                    -> Salta incondicionalmente para o identificador 0000
+             ;
+             
+  **Código em C:**
+             
+             while(true){
+                 printf("Tomando café eternamente\n");
+             }
+
+  **Código em Assembly:**
+  
+             cup:
+                 mov si, String
+                 call PrintString
+                 jmp cup
+              String db "Tomando café eternamente",13,10,0
+              
+   No código em CFOCOL, o identificador 0001 tem a instrução _C20H28O3_ com o 1ª argumento 0 (salto incondicional), na qual ele salta para o identificador 0000 que está com a instrução de exibição de caracteres _C8H10N4O2_, porém se é incondicional significa que o 3ª argumento é inútil, pois não é utilizado na condição, logo, o 3ª argumento deve ser 0, pois o mínimo de argumentos nessas instruções são 3 (mesmo sendo inútil), é claro que em outras versões vamos alterar essa funcionalidade, removendo o 3ª argumento em situações incondicionais.
+   
+ Por enquanto, o interpretador funciona apenas para o 1ª Bottle cup, ou seja, não é possível chamar instruções de outros Bottles utilizando o sinal _ '_' _, como: _@Bottle1_0000_, isto vamos implementar na 2ª versão do interpretador. Então agora veremos outra situação que é um salto condicional, comparando o valor da posição de memória atual com 10, enquanto não for, ele saltará para a instrução:
+ 
+ **Código em CFOCOL:**
+ 
+            cup:
+                 0000: C8H10N4O2 Tomando café eternamente%!  -> Exibe uma string com quebra de linha no identificador 0000
+                 0001: C7H8N4O2 0,$,1!                       -> soma +1 na posição atual de memória (inicialmente é 0)
+                 0002: C20H28O3 2,0000,10!                   -> Salta para o identificador 0000 se posição atual é diferente de 10
+            ;
+   
+  **Código em C:**
+             
+             for(int i = 0; i != 10; i++){
+                 printf("Tomando café eternamente\n");
+             }
+             
+ **Código em Assembly:**
+  
+             cup:
+                 mov cl, 0
+                 loop:
+                    mov si, String
+                    call PrintString
+                    inc cl
+                    cmp cl, 10
+                    jne loop
+              String db "Tomando café eternamente",13,10,0
+              
+  
+ Nestes códigos exemplos, as 3 linguagens executa a mesma operação: Exibir a string "Tomando café eternamente" 10 vezes. Então, enquanto uma condição não for satisfeita (valor for diferente de 10), uma mesma instrução será executada, por um salto condicional. O 1ª argumento 2 da instrução em CFOCOL simboliza a operação lógica **diferente** e desta vez o 3ª argumento 10 se torna útil, pois é com esse argumento que vamos comparar o valor da posição atual 0 (que é padrão em casos que não utiliza o deslocamento). Desta vez vamos pro último exemplo de um mesmo salto condicional mas comparando com a posição anterior e não com a posição atual, porém precisamos utilizar os deslocamentos:
+ 
+  **Código em CFOCOL:**
+ 
+            cup:
+                 0000: C8H10N4O2 ,<$>, !                     -> Exibe o número 0 da posição atual com espaço
+                 0001: C9H8O4 0,1!                           -> desloca +1 posição na memória
+                 0002: C7H8N4O2 0,$,1!                       -> soma +1 na posição atual de memória (inicialmente é 0)
+                 0003: C9H8O4 1,1!                           -> desloca -1 posição na memória
+                 0004: C20H28O3 12,0000,10!                  -> Salta para o identificador 0000 se posição anterior é diferente de 10
+            ; 
+            
+   **Código em C:**
+             
+             for(int i = 0; i != 10; i++){
+                 int j = 0;
+                 printf("%d ", j);
+             }
+             
+    
+   **Código em Assembly:**
+  
+             cup:
+                 mov cl, 0
+                 mov ah, 0Eh
+                 loop:
+                    mov al, '0'
+                    int 10h
+                    inc cl
+                    cmp cl, 10
+                    jne loop
+                    
+   
+  
