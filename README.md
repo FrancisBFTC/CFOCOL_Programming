@@ -342,4 +342,40 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
 Então, nosso próximo passo é substituir a **operação de salto** por **operação de chamada**, mas não vamos substituir a instrução em si que é o cafestol, manteremos esta instrução e a única coisa que vamos substituir é um único argumento - O primeiro. Como além de orientação a cafeína, é uma linguagem orientada a argumentos, vamos começar a chamar as instruções condicionalmente com retornos manipulados ou não pelo interpretador, tal retorno será o ácido hidroxibenzóico _C7H6O3_ e também veremos sobre os códigos equivalentes em C e Assembly, primeiro vamos ver como funciona as chamadas incondicionais em CFOCOL:
 
 
-       
+**Código em CFOCOL:**
+ 
+            cup:
+                 0000: C20H28O3 0,0003,10!                   -> Salto incondicional para a instrução 0003
+                 0001: C8H10N4O2 A!                          -> Exibe a letra A 
+                 0002: C7H6O3 0,0!                           -> Retorna a chamada de origem
+                 0003: C20H28O3 30,0001,0!                   -> Chama a instrução 0001 (Chamada de origem)
+                 0004: C8H10N4O2 %Fim do programa%!          -> Exibe "Fim do programa" com quebra de linha no Início e Final
+             ;
+ 
+ **Código em C:**
+ 
+           void Exibir(){
+               printf("A");
+           }
+           int main(void){
+             Exibir();
+             printf("\nFim do programa\n");
+             return 0;
+           }
+
+**Código em Assembly:**
+
+           jmp Main
+           Exibir:
+              mov ah, 0Eh
+              mov al, 'A'
+              int 10h
+           ret
+           Main:
+              call Exibir
+              mov si, String
+              call PrintString  ;rotina pra exibir caracteres do que está em si
+              jmp END
+           String db 13,10,"Fim do programa",13,10,0
+           
+  
