@@ -488,3 +488,19 @@ Eis aqui um "simples" Exemplo Hello World. Como em toda linguagem de programaç�
 Este programa apesar de ser simples, é bem interessante por um detalhe: teste de outros tipos de operações lógicas. Este programa exibe X números somados com 5, porém tudo pode mudar na mudança do 1ª argumento. O sistema salta para o Id. 1 enquanto é diferente de 50 mas aí é que entra, Enquanto a quantidade de números for diferente de 50 ou enquanto o próprio número final for diferente de 50? Pois então, o argumento com o número 2 indica a 2ª opção, porém se somar esse argumento +10, ou seja, 12, será a 1ª opção pois ele não vai comparar os valores da posição atual mas sim da posição anterior, e isso acarreta uma mudança no programa, exibindo 50 números somados com 5 e não, X números até 50. Outra mudança é alterar os argumentos para 6 ou 16, que pode exibir um número a mais no final da interação, os argumentos 4 e 14 também podem ser usados.
 
 [Saiba mais sobre outros códigos na pasta Examples](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Examples)
+
+### Comentários
+
+Outra questão que ainda não foi tratada nesta documentação são os comentários. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
+
+### Entrada de dados & Bottles Secundários
+
+Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não foi criada, algumas metodologias seguindo o paradigma do CFOCOL ainda estão sendo pensadas a respeito sobre entrada de dados. Os Bottles Secundários também ainda foi criadas, pois ainda todo o interpretador se baseia apenas em 1 matriz de dados que é relacionado ao Bottle "Cup" (Main), para desenvolver outros Bottles, durante a pré-interpretação, é preciso armazenar os Bottles Secundários em uma outra matriz separada por índices de uma estrutura de dados, onde ocorrerá um **mapeamento** de índices passando como referência o nome do Bottle, e isso será feito em outra versão do CFOCOL, que será a definitiva, incluindo a **entrada de dados** através da Instrução sacarose _C12H22O11_ e possíveis outros sinais da linguagem. Então, A linguagem está na versão Alfa e em breve promete chegar na versão Beta. Abaixo será disponibilizado o Link da outra versão da documentação:
+
+(Link não disponível)
+
+### Modos de interpretação
+
+#### Via linha de comando
+
+
