@@ -521,3 +521,24 @@ Para executar o interpretador em qualquer região do computador, é preciso adic
 
 ![](/Imagens/varsamb.png)
 ![](/Imagens/global.png)
+
+#### Clique Duplo
+
+Outra opção de interpretação é dar **Cliques duplos** nos arquivos CFOCOL. No momento que cria um arquivo no computador, cuja extensão é desconhecida pelo sistema operacional, pela primeira vez, o sistema operacional cria registros no banco de dados do sistema com uma pasta nomeada com a extensão criada, Exemplo: .cf, .cop,etc.. nas chaves do sistema e de usuário desse registro, a extensão ainda está vazia, ou seja, não contém nenhuma informação relevante para o sistema operacional interpretar o tipo daquele arquivo, portanto o padrão de todo tipo de arquivo desconhecido pré-criado será - **Abre com:** _DLL comum do Shell..._; **Tipo de arquivo:** Arquivo EXTENSÃO (onde a palavra EXTENSÃO é substituída pela extensão criada pela primeira vez), no nosso Exemplo seria: Arquivo CF, Arquivo CFL, etc... a forma mais simples de fazer o S.O adicionar mais informações para aquele tipo de arquivo é **Abrir o arquivo com algum programa** pela primeira vez, e marcar pra sempre abrir com aquele programa quando ser clicado, o nosso programa é o interpretador cfocol.exe, então veja o antes e o depois nas imagens do arquivo sem um programa associado e com uma associação:
+
+**Sem associação de nenhum programa**:
+
+![](/Imagens/assoc1.png)
+![](/Imagens/assoc2.png)
+
+**Com associação do interpretador**:
+
+![](/Imagens/assoc3.png)
+![](/Imagens/assoc4.png)
+
+Perceba que após o arquivo ser associado ao executável, podemos clicar 2 vezes e executar o arquivo, porém como a janela do CMD vai abrir muito rápido, é preciso adicionar algum comando de esperar tecla, na qual poderemos fazer daqui em diante, o mesmo procedimento pode ser feito executando o arquivo direto na linha de comando, em vez de digitar **cfocol resto.cf**, apenas digite: **resto.cf** e o arquivo será executado. Fazer isso é simples: basta clicar 2 vezes no arquivo, na janela que abre (como na 2ª imagem da parte de **sem associação de nenhum programa**), selecione a opção _Selecionar um programa em uma lista de programas instalados_ e dê um ok, na próxima janela que abrir vai ter uma lista de programas que você pode usar para abrir este tipo de arquivo, porém como queremos abrir com o interpretador, basta clicar em **Procurar** (caso o interpretador não esteja na lista) e procure o diretório onde você colocou a pasta e o executável do interpretador e selecione o executável **cfocol.exe**, é recomendável que depois desta associação não excluir o executável do diretório, porém o executável pode ser substituído por outro em casos de atualização do código-fonte do interpretador. Veja a imagem abaixo:
+
+![](/Imagens/assoc5.png)
+
+No entanto, como vimos na imagem, apenas o programa em que o arquivo é aberto, é atribuído e associado, pois apenas esta informação é armazenada no Editor de registros do S.O, porém ainda se mantém o nome padrão **Arquivo CF** ou **Arquivo COP**, você poderá editar manualmente o Editor de registros para adicionar mais informações como: Ao clicar em **Editar** sobre o arquivo, ele abre com um Editor padrão; Ter uma lista de programas possíveis para o arquivo ser aberto; Alterar a descrição do tipo de arquivo - em vez de **Arquivo CF**, algo como, **Arquivo de programação CFOCOL**, ou, **CFOCOL File**; Executar diversos parâmetros do interpretador através do mouse; e Por aí vai... são muitas coisas que se pode fazer sobre um arquivo com extensão nova de linguagem pelo Editor de Registros, só é recomendável sempre estudar melhor sobre o assunto para não mecher com chaves erradas no Registro, pois isso pode danificar o sistema operacional. Existe 2 formas para fazer todas essas operações com segurança nos arquivos CFOCOL: Manual e Programado. Para saber mais sobre o assunto, acesse o vídeo do Youtube que ensino: [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY), clicando neste link você será redirecionado para o meu canal no Youtube onde ensino as 2 formas que falei pra fazer alteração nos registros. Veja na imagem abaixo como que fica algumas alterações no arquivo dos Registros:
+
