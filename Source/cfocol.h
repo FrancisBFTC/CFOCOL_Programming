@@ -31,8 +31,9 @@ int lastOffOp = 0;
 #define SELECTION "C9H8O4 "    //SEL -> Seleção de memória
 #define SALTOCOND "C20H28O3 "  //JMP -> Saltos e chamadas
 #define RETURNS   "C7H6O3 "    //RET -> Retorno de chamadas
-#define INPUT     "C12H22O11 " //INP -> Entrada de dados
+#define INPUT     "C12H22O11 " //INP -> Entrada de dados (teclado)
 
+//ClearAll reseta algumas variáveis
 #define ClearAll(a, b, c)   *a = 101; \
 						 	b.str(""); \
 						   	b.clear(); \
@@ -40,13 +41,15 @@ int lastOffOp = 0;
 							c.clear(); \
 
 
-	
+
+//Converte ponteiro de char para std::string	
 string returnString(char *str){
 	stringstream data1;
 	data1 << str;
 	return data1.str();
 }
 
+//Função que verifica se string contém outra
 bool cont(string first, string second)
 {
 	 int pos = 0;
@@ -59,6 +62,7 @@ bool cont(string first, string second)
           
 }
 
+//Ignora espaços desnecessários entre os comandos
 void IgnoreSpaces(){
 	while(ch != '\n'){
 		ch = fgetc(readFile);
@@ -69,6 +73,11 @@ void IgnoreSpaces(){
 	concat.clear();	
 }
 
+/* 
+* O Pre-interpretador vai ler todas as linhas do Bottle Cup 
+* e armazenar na matriz BottleCup[][], identificando os
+* possíveis erros de sintaxe
+*/
 void PreInterpreter(){
 	while((ch = fgetc(readFile)) != -1){
 				concat << ch;
@@ -121,6 +130,7 @@ void PreInterpreter(){
 			
 }
 
+//Comando de impressão de dados
 void PrintCommand(int i, int *j){	
 	if(BottleCup[i][*j] == ' ')
 		*j = *j + 1;
@@ -179,6 +189,7 @@ void PrintCommand(int i, int *j){
 	ClearAll(j, Line, charsNum);
 }
 
+//Analise dos argumentos
 void ArgsAnalise(int *sizeNum, int *num, int *i, int *j){
 	while(BottleCup[*i][*j] != ','){
 		charsNum << BottleCup[*i][*j];
@@ -204,6 +215,7 @@ void ArgsAnalise(int *sizeNum, int *num, int *i, int *j){
 	}
 }
 
+//Função de operações aritméticas
 void OperationCommand(int *i, int *j){
 	*j = *j + 1;
 	int num = 0;
@@ -249,6 +261,7 @@ void OperationCommand(int *i, int *j){
 	ClearAll(j, Line, charsNum);
 }
 
+//Função de seleção e deslocamento de memória
 void SelectionCommand(int *i, int *j){
 	*j = *j + 1;
 	int num = 0;
@@ -287,6 +300,7 @@ void SelectionCommand(int *i, int *j){
 	ClearAll(j, Line, charsNum);
 }
 
+//Função de Saltos/Chamadas condicionais/incondicionais
 void JumpCondition(int *i, int *j){
 	*j = *j + 1;
 	int num = 0;
@@ -294,7 +308,7 @@ void JumpCondition(int *i, int *j){
 	int count = 0;
 	int op;
 	int address = 0;
-	bool condition = true;
+	bool condition = false;
 	while(BottleCup[*i][*j] != '!'){
 				
 		ArgsAnalise(&sizeNum, &num, i, j);
@@ -370,9 +384,90 @@ void JumpCondition(int *i, int *j){
 						condition = (lastOffOp == 0) ? memory[selection-lastOffset] == 0 : memory[selection+lastOffset] == 0;
 					 break;
 					 case 30:
-					 	condition = true;
 					 	stacks[top] = *i;
 					 	top = top + 1;
+					 	condition = true;
+					 break;
+					 case 31:
+					 	condition = memory[selection] == num;
+					 	if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 32:
+					 	condition = memory[selection] != num;
+					 	if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 33:
+					 	condition = memory[selection] > num;
+					 	if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 34:
+					 	condition = memory[selection] < num;
+					 	if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 
+					 case 35: 
+						condition = memory[selection] >= num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 36: 
+						condition = memory[selection] <= num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 37: 
+						condition = memory[selection] & num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 38: 
+						condition = memory[selection] | num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 39:
+						condition = memory[selection] != 0;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 40: 
+						condition = memory[selection] == 0;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 41: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] == num : memory[selection+lastOffset] == num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 42:
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] != num : memory[selection+lastOffset] != num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 43: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] > num : memory[selection+lastOffset] > num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 44: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] < num : memory[selection+lastOffset] < num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 45: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] >= num : memory[selection+lastOffset] >= num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 46: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] <= num : memory[selection+lastOffset] <= num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 47: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] & num : memory[selection+lastOffset] & num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 48: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] | num : memory[selection+lastOffset] | num;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 49:
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] != 0 : memory[selection+lastOffset] != 0;
+						if(condition){ stacks[top] = *i; top = top + 1; }
+					 break;
+					 case 50: 
+						condition = (lastOffOp == 0) ? memory[selection-lastOffset] == 0 : memory[selection+lastOffset] == 0;
+						if(condition){ stacks[top] = *i; top = top + 1; }
 					 break;
 					default:  break;
 				}
@@ -380,7 +475,7 @@ void JumpCondition(int *i, int *j){
 			
 		}	
 		
-		if(op > 30)
+		if((op > 20 && op < 30) || op > 50)
 			break;
 			
 		sizeNum = 0;
@@ -390,16 +485,17 @@ void JumpCondition(int *i, int *j){
 		*j = (BottleCup[*i][*j] == ',') ? *j + 1 : *j;
 	}
 	
-	if(op > 30)
+	if((op > 20 && op < 30) || op > 50)
 		cout << "Condicao invalida (nao conhecida)!" << endl;
 	
-	if(condition == true)
+	if(condition)
 		*i = address - 1;
 		
 		
 	ClearAll(j, Line, charsNum);
 }
 
+//Comando de retorno de chamadas
 void ReturnCommand(int *i, int *j){	
 	*j = *j + 1;
 	int num = 0;
@@ -428,11 +524,8 @@ void ReturnCommand(int *i, int *j){
 	}
 	
 	top = top - 1;
-	if(op == 0)
-		*i = stacks[top]+address;
-	else
-		*i = stacks[top]-address;
-	
+    *i = (op == 0) ? stacks[top]+address : stacks[top]-address;
+
 	ClearAll(j, Line, charsNum);
 }
 
