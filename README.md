@@ -5,8 +5,14 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
   * <a href="#inst"> Instruções da linguagem </a>
   * <a href="#proc"> Procedimentos & Sinais </a>
   * <a href="#func"> Funcionalidades do CFOCOL </a>
+      * 1. <a href="#op"> Operações aritméticas </a>
+      * 2. <a href="#sel"> Seleção/Deslocamento de memória </a>
+      * 3. <a href="#impr"> Impressão de dados </a>
+      * 4. <a href="#salt"> Saltos Condicionais/Incondicionais </a>
+      * 5. <a href="#call"> Chamadas Condicionais/Incondicionais </a>
+      * 6 <a href="#salt"> Operações aritméticas </a>
   
-  
+<a name="inst"></a> 
 ## Instruções da linguagem
   
   Existem 6 fórmulas químicas, cada uma pra um comando/instrução. Dessas 6 fórmulas: 2 são alcalóides, 2 são ácidos orgânicos, 1 é um diterpeno e 1 é um sacarone (açúcar), todos eles são umas das composições do café, veja abaixo:
@@ -26,7 +32,7 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
     1. C20H28O3  -> salto/chamada condicional ou incondicional - cafestol
     2. C12H22O11 -> Entrada de dados                           - sacarose (açúcar)
     
-    
+ <a name="proc"></a> 
 ## Procedimentos e sinais
 
 Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (função) principal é obrigatoriamente o "cup", seguido por 2 pontos ':', assim como o Main de uma linguagem de programação de alto-nível. Todo Bottle deve abrir com ':' e finalizar com ';', dentro de cada Bottle terá instruções referenciadas pelos seus **identificadores** que são números hexadecimais para identificar uma determinada instrução. Também existem os **Bottles Secundários** que tem um sinal de referência '@' no começo, os nomes de Bottles poderão ser utilizados para ser chamados por instruções de saltos por outro Bottle, especificando também o identificador expecífico que se quer executar, veja abaixo as definições de sinais da linguagem e Bottles:
@@ -49,9 +55,10 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
    8.  '$'  -> valor da posição atual de memória
    9.  '#'  -> valor da última posição deslocada
    10. '<>' -> exibição de inteiros das posições
-   
+  
+   <a name="func"></a> 
    ## Funcionalidades do CFOCOL
-   
+   <a name="op"></a> 
  ### Operações Aritméticas
  
    Em CFOCOL, além das instruções, é preciso conhecer os **argumentos**, já que a maior parte das funcionalidades de cada instrução são programadas pelos argumentos. Na linguagem CFOCOL, argumentos são números separados por vírgula que cada instrução pode utilizar, são esses números que define a funcionalidade daquela instrução, um exemplo é a teobromina _C7H8N4O2_, que é uma instrução de operações aritméticas, ela contém o 1ª argumento reservado para o tipo de operação, veja os tipos possíveis:
@@ -96,8 +103,8 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
         C7H8N4O2 0,$,#! -> Considerando que $ é 15 e # (último deslocamento) é 2, logo, 15 + 2 = 17
         
         O valor final da posição atual (0) é 17 -> recuperado por $
-        O valor final da posição anterior (1) é 2 -> recuperado por #
-        
+        O valor final da posição anterior (1) é 2 -> recuperado por #  
+  <a name="sel"></a>     
   ### Seleção/Deslocamento de memória
   
   O Ácido orgânico _C9H8O4_ é uma instrução para deslocamento de memória. Antes dela ser utilizada, a posição atual da memória é 0, porém, após ser utilizada, a posição pode assumir qualquer valor, exemplo: O 1ª argumento desta instrução pode ser 0 ou 1, 0 para soma de deslocamento e 1 para subtração de deslocamento; O 2ª argumento está relacionado ao número de operação para deslocamento, se for 1, deslocará 1 posição na memória, se for 2, 2 posições na memória, se for 5, vai deslocar 5 posições na memória, etc... o deslocamento irá pra frente se o 1ª argumento for 0 e o deslocamento irá pra trás se o 1ª argumento for 1. No entanto, só é possível utilizar o máximo de 2 argumentos nesta instrução, diferente de outras instruções que utiliza de 3 argumentos pra mais. No momento que a instrução de deslocamento é utilizada, a devida posição é selecionada, permitindo que operações aritméticas agem em cima destas posições, incluindo saltos condicionais/incondicionais. 
@@ -121,7 +128,7 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
         
         Resultado final: $ = 0 (valor e posição)
                          # = 5 (valor e posição)
-                         
+   <a name="impr"></a>                     
    ### Impressão de dados                      
        
   Após compreendermos sobre as operações aritméticas e seleções de memória, vamos entender como funciona a cafeína, que é a instrução para **Impressão de caracteres**. Existem 3 maneiras para imprimir caracteres:
@@ -195,7 +202,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
               2ª Valor: b
               1ª Valor: 97
               2ª Valor: 98
-              
+   <a name="salt"></a>           
   ### Saltos Condicionais/Incondicionais
   
   Veremos agora sobre um dos tipos de diterpenos chamado **_Cafestol_** e o **_ácido hidroxibenzóico_** que faz parte dos **_ácidos orgânicos_** (da mesma família que o ácido cafeico), ambos são utilizados no café e vai nos dar muita energia cerebral ao programar esses elementos... Pois bem, o cafestol _C20H28O3_ é uma instrução para saltos condicionais/incondicionais e chamadas condicionais/incondicionais. Apenas a instrução de salto pode fazer a condição e se for verdadeira, ela salta para um endereço chamado **identificador** (termos do CFOCOL), a mesma coisa é a chamada, na qual é a mesma instrução cafestol, a diferença é que na chamada ela salta se for verdadeiro, executa a instrução e quando identifica o ácido hidroxibenzóico _C7H6O3_, o interpretador retorna para a chamada de origem, ou seja, 1 linha a mais da instrução que chamou a outra instrução. No entanto, os saltos e as chamadas podem ser **incondicionais**, ou seja, não necessitando de uma condição. A partir de agora, iremos utilizar os identificadores nos exemplos e os códigos equivalentes em C, primeiramente vamos ver quais argumentos que especifica um salto ou uma chamada:
@@ -349,7 +356,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
                     
    
   Nestes códigos exemplos, nós incrementamos um valor mas exibimos outro, ou seja, uma variável em C é incrementada e utilizada na condição e a outra variável é exibida mas nunca incrementada, no total de 10 vezes. No Assembly a mesma coisa é feita, cl é incrementado e comparado mas o que é exibido é o que está em al que é o char '0'. Tudo isso se trata de exibir um valor diferente daquele que é o incremento, pois o valor de incremento só é utilizado como _contador_ de um programa, em CFOCOL não é diferente, podemos ter inúmeros valores pra exibir em posições de memória totalmente distintas e utilizando um contador individual de incremento. Por enquanto, tudo parece simples, pois temos um programa menor, mas como a própria frase de Alan perling diz sobre as linguagens Turing Tarpit: "Cuidado com o Turing Tarpit, onde tudo é possível mas nada de interessante é fácil". Isso quer dizer que, quanto maior for a necessidade do nosso programa, maior é a quantidade de variáveis diferentes a ser utilizadas e mais complexo será o programa em CFOCOL pois não existem variáveis em CFOCOL, e aí, uma tremenda gambiarra de operações aritméticas + deslocamento de memória deve ser feita para alcançar tal propósito, muito café deve estar armazenado no organismo para atingir tal privilégio porque não é impossível, mas é difícil. Então tudo isso, pode alimentar a teoria de que os limites das possibilidades de um método funcional pode ser testado, a fim de chegar numa conclusão de como um programa "quase-primordial" pode simular na vida real. CFOCOL não é uma linguagem Turing Completa, mesmo adotando algumas características, mas chega perto dessa categoria mesclados com conceitos imperativos de programação. 
-  
+  <a name="call"></a>  
  ### Chamadas Condicionais/Incondicionais
  
 Então, nosso próximo passo é substituir a **operação de salto** por **operação de chamada**, mas não vamos substituir a instrução em si que é o cafestol, manteremos esta instrução e a única coisa que vamos substituir é um único argumento - O primeiro. Como além de orientação a cafeína, é uma linguagem orientada a argumentos, vamos começar a chamar as instruções condicionalmente com retornos manipulados ou não pelo interpretador, tal retorno será o ácido hidroxibenzóico _C7H6O3_ e também veremos sobre os códigos equivalentes em C e Assembly, primeiro vamos ver como funciona as chamadas incondicionais em CFOCOL:
