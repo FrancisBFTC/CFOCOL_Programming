@@ -15,7 +15,7 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
       *  <a href="#prog"> Programas em CFOCOL  </a>
   * <a href="#mode"> Modos de Interpretação </a>
       *  <a href="#command1"> Via linha de comando  </a>
-      *  <a href="#command2"> Via linha de comando (Variáveis de Ambiente) </a>
+      *  <a href="#command2"> Via linha de comando global (Variáveis de Ambiente) </a>
       *  <a href="#click"> Clique Duplo </a>
   * <a href="#colors"> Cores sintáticas no Editor </a>
   
@@ -557,7 +557,7 @@ Por enquanto, não existem outros parâmetros de linha de comando na versão Alf
 <a name="command2"></a>
 #### Via linha de comando global (Variáveis de Ambiente)
 
-Para executar o interpretador em qualquer região do computador, é preciso adicionar na variável PATH das Variáveis de Ambiente do sistema. Se tiver utilizando Windows 7, vá em "computador" ou "Meu computador", clique em _propriedades_, no painel de controle abra as _Configurações avançadas do sistema_, na janela que abriu clique no botão _Variáveis de Ambiente_ e na região de Variáveis do sistema, procure e selecione a variável _path_, clique no botão _Editar_ e vai até o final do valor onde está o ;, após o ; adicione o diretório onde está o executável **cfocol.exe**, Exemplo: C:\CFOCOL\;, após isso é só dar os OKs e pronto.
+Para executar o interpretador em qualquer região do computador, é preciso adicionar na variável PATH das Variáveis de Ambiente do sistema. Se tiver utilizando Windows 7, vá em "computador" ou "Meu computador", clique em _propriedades_, no painel de controle abra as _Configurações avançadas do sistema_, na janela que abriu clique no botão _Variáveis de Ambiente_ e na região de Variáveis do sistema, procure e selecione a variável _path_, clique no botão _Editar_ e vai até o final do valor onde está o ;, após o ; adicione o diretório onde está o executável **cfocol.exe**, Exemplo: C:\CFOCOL\;, após isso é só dar os OKs e pronto. Se optar, execute como administrador o arquivo [ConfigSystem.bat](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config) deste repositório, que ele irá efetuar todos esses procedimentos automaticamente, só é preciso fornecer um caminho de entrada do interpretador durante a execução.
 
 ![](/Imagens/varsamb.png)
 ![](/Imagens/global.png)
@@ -655,6 +655,6 @@ Perfil no Linkedin: [Wender Francis](https://www.linkedin.com/in/bftcorporations
 Curso D.S.O.S : [Desenvolva um sistema operacional do zero em Assembly que também terá sua própria linguagem de programação](https://www.youtube.com/playlist?list=PLsoiO2Be-2z8BfsSkspJfDiuKeC9-LSca)
 <br><br>
 Agradecimentos BFTCorporations!
-
-<a href="#menu">Voltar ao menu</a>
+<br>
+<a href="#menu">Voltar ao menu</a><br>
 <a href="https://github.com/FrancisBFTC/CFOCOL_Programming">Voltar ao repositório</a>
