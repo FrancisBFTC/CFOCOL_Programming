@@ -1,6 +1,12 @@
 # CFOCOL_Programming
 O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language ou Linguagem orientada a fórmula química de café. Possui apenas 6 instruções em formato de fórmulas químicas do café e pode ser usada para "testar limites de aplicação" como na maioria das linguagens "Turing Tarpit". O CFOCOL, além de programação imperativa, cria outros conceitos de "Linguagem orientada a argumentos", onde as possíveis funcionalidades de 1 instrução pode ser descrita como argumentos numéricos. Neste repositório está armazenada Pasta de exemplos de algoritmos Cfocol, o interpretador da linguagem, arquivos de configurações e o código fonte do interpretador. Abaixo são descrito algumas funcionalidades e instruções da linguagem:
 
+ <a name="menu"></a>
+  * <a href="#inst"> Instruções da linguagem </a>
+  * <a href="#proc"> Procedimentos & Sinais </a>
+  * <a href="#func"> Funcionalidades do CFOCOL </a>
+  
+  
 ## Instruções da linguagem
   
   Existem 6 fórmulas químicas, cada uma pra um comando/instrução. Dessas 6 fórmulas: 2 são alcalóides, 2 são ácidos orgânicos, 1 é um diterpeno e 1 é um sacarone (açúcar), todos eles são umas das composições do café, veja abaixo:
@@ -581,9 +587,11 @@ A grande questão é que podemos criar nossas próprias cores de novas linguagen
 A partir do momento que você fazer estas configurações e salvar, todos os arquivos que você criar com uma determinada extensão e tipo configurado, vai ser identificado pelo editor e durante o desenvolvimento, os códigos irá se colorir. Neste repositório na pasta Config, já existe um arquivo chamada [EditorConfig.xml](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config), agora mostrarei os passos de como importar este arquivo no Editor Notepad++:
 
 Vá no menu _Linguagem_ e clique em _Defina o seu idioma_:
+
 ![](/Imagens/lang2.png)
 
 Na janela que abriu, clique no Botão _Importar_ e escolha o arquivo _EditorConfig.xml_:
+
 ![](/Imagens/lang3.png)
 
 Após isso, é só marcar em **idioma do...** a opção **cfocol** e todas as configurações de cores de palavras-chaves estarão lá, disponíveis pra ser alteradas ou utilizadas. Pode-se exportar outros tipos de configurações pra outras linguagens também.
@@ -593,3 +601,14 @@ Após isso, é só marcar em **idioma do...** a opção **cfocol** e todas as co
 Todas as configurações salvas de novas linguagens, irá armazenar no menu **linguagem**, quando criar um arquivo cfocol pela primeira vez, marque o nome **cfocol** no menu **linguagem**, abaixo do **Defina o seu idioma** e partir daí, toda vez que salvar um arquivo na extensão .cf, .cfl ou .cop, o Editor automaticamente irá colorir os códigos do CFOCOL.
 
 Para conhecer mais sobre esse assunto de Edição de cores em códigos no Notepad++, clique no link [Criando visual de códigos de uma linguagem própria no Notepad++](https://www.youtube.com/watch?v=tjg0f8krCwk)
+
+Então, isso é tudo que devemos saber sobre o cfocol por enquanto, vimos muita coisa nesta documentação, porém possivelmente nas próximas versões após a linguagem ficar completa, o desenvolvimento vai ficar mais amplo, ou seja, seria uma boa idéia criar uma IDE própria para o CFOCOL que consegue reconhecer instruções específicas e aliás, ter as mesmas configurações de linguagem do Notepad++ mas por enquanto vamos apenas focar no funcionamento da linguagem.
+
+Enfim, quero agradecer por ter chegado até aqui e meus parabéns! você realmente ultrapassou os limites da cafeína no organismo e tem de sobra pra poder programar em qualquer linguagem de programação (não importa a sua complexidade). É uma honra pra mim está compartilhando este repositório para pessoas que querem aprender a desenvolver uma linguagem de programação ou até aqueles que pretendem colaborar com o projeto e tornar a linguagem mais eficiente e segura, como também abrir novas oportunidades de funções, novas linguagens e novos paradigmas. Então, aproveite o desenvolvimento em CFOCOL!
+
+Canal no Youtube: [BFTCorporations](https://www.youtube.com/channel/UCAC2WHKy7UmEQXaZbMfcszg)
+Perfil no Facebook: [Wender Francis (francis.bftc)](https://www.facebook.com/francis.bftc)
+Perfil no Instagram: [Francis.System (@francisbftc.sys)](https://www.instagram.com/francisbftc.sys/)
+Perfil no Linkedin: [Wender Francis](https://www.linkedin.com/in/bftcorporations/)
+
+Curso D.S.O.S : [Desenvolva um sistema operacional do zero em Assembly que também terá sua própria linguagem de programação](https://www.youtube.com/playlist?list=PLsoiO2Be-2z8BfsSkspJfDiuKeC9-LSca)
