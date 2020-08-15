@@ -489,9 +489,9 @@ Este programa apesar de ser simples, é bem interessante por um detalhe: teste d
 
 [Saiba mais sobre outros códigos na pasta Examples](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Examples)
 
-### Comentários
+### Comentários em CFOCOL
 
-Outra questão que ainda não foi tratada nesta documentação são os comentários. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
+Outra questão que ainda não foi tratada nesta documentação são os _comentários_. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
 
 ### Entrada de dados & Bottles Secundários
 
@@ -502,5 +502,7 @@ Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não fo
 ### Modos de interpretação
 
 #### Via linha de comando
+
+Para executar via linha de comando, apenas abra o CMD e navegue até o diretório que contém o executável do cfocol. O interpretador só requere 1 argumento na linha de comando - o nome do arquivo. No entanto, é preciso conhecer a extensão utilizada em arquivos CFOCOL e são elas: .cf, .cfl e .cop. O interpretador vai reconhecer apenas essas 3 extensões de arquivos
 
 
