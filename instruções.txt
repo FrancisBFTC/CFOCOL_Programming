@@ -1,0 +1,11 @@
+Alcalóides:
+C8H10N4O2 -> impressão -> cafeína
+C7H8N4O2 -> operação -> teobromina
+
+Ácidos orgânicos:
+C9H8O4 -> seleção -> ácido cafeico
+C7H6O3 -> Retorno de chamada -> ácido hidroxibenzoico
+
+diterpeno e sacarose:
+C20H28O3 -> salto/chamada condicional ou incondicional -> cafestol
+C12H22O11 -> Entrada de dados -> sacarose (açúcar)
