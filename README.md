@@ -1,5 +1,5 @@
 # CFOCOL_Programming
-O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language ou Linguagem orientada a fórmula química de café. Possui apenas 6 instruções em formato de fórmulas químicas do café e pode ser usada para "testar limites de aplicação" como na maioria das linguagens "Turing Tarpit". O CFOCOL, além de programação imperativa, cria outros conceitos de "Linguagem orientada a argumentos", onde as possíveis funcionalidades de 1 instrução pode ser descrita como argumentos numéricos. Neste repositório está armazenada Pasta de exemplos de algoritmos Cfocol, o interpretador da linguagem, arquivos de configurações e o código fonte do interpretador. Abaixo são descrito algumas funcionalidades e instruções da linguagem:
+O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language ou Linguagem orientada a fórmula química de café. Possui apenas 6 instruções em formato de fórmulas químicas do café e pode ser usada para "testar limites de aplicação" como na maioria das linguagens "Turing Tarpit". O CFOCOL, além de programação imperativa, cria outros conceitos de "Linguagem orientada a argumentos", onde as possíveis funcionalidades de 1 instrução pode ser descrita como argumentos numéricos. Neste repositório está armazenada Pasta de exemplos de algoritmos Cfocol, o interpretador da linguagem, arquivos de configurações e o código fonte do interpretador. Abaixo são descritos algumas funcionalidades e instruções da linguagem:
 
  <a name="menu"></a>
   * <a href="#inst"> Instruções da linguagem </a>
@@ -22,7 +22,7 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
 <a name="inst"></a> 
 ## Instruções da linguagem
   
-  Existem 6 fórmulas químicas, cada uma pra um comando/instrução. Dessas 6 fórmulas: 2 são alcalóides, 2 são ácidos orgânicos, 1 é um diterpeno e 1 é um sacarone (açúcar), todos eles são umas das composições do café, veja abaixo:
+  Existem 6 fórmulas químicas, cada uma pra um comando/instrução. Dessas 6 fórmulas: 2 são alcalóides, 2 são ácidos orgânicos, 1 é um diterpeno e 1 é um sacarose (açúcar), todos eles são umas das composições do café, veja abaixo:
   
  **Alcalóides ->**
  
@@ -43,7 +43,7 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
  <a name="proc"></a> 
 ## Procedimentos e sinais
 
-Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (função) principal é obrigatoriamente o "cup", seguido por 2 pontos ':', assim como o Main de uma linguagem de programação de alto-nível. Todo Bottle deve abrir com ':' e finalizar com ';', dentro de cada Bottle terá instruções referenciadas pelos seus **identificadores** que são números hexadecimais para identificar uma determinada instrução. Também existem os **Bottles Secundários** que tem um sinal de referência '@' no começo, os nomes de Bottles poderão ser utilizados para ser chamados por instruções de saltos por outro Bottle, especificando também o identificador expecífico que se quer executar, veja abaixo as definições de sinais da linguagem e Bottles:
+Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (função) principal é obrigatoriamente o "cup", seguido por 2 pontos ':', assim como o Main de uma linguagem de programação de alto-nível. Todo Bottle deve abrir com ':' e finalizar com ';', dentro de cada Bottle terá instruções referenciadas pelos seus **identificadores** que são números hexadecimais para identificar uma determinada instrução. Também existem os **Bottles Secundários** que tem um sinal de referência '@' no começo, os nomes de Bottles poderão ser utilizados para ser chamados por instruções de saltos por outro Bottle, especificando também o identificador específico que se quer executar, veja abaixo as definições de sinais da linguagem e Bottles:
 
 **Bottles(Procedimentos/rotinas):**
    1. Bottle principal - cup -> main.
@@ -220,7 +220,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
    <a name="salt"></a>           
   ### Saltos Condicionais/Incondicionais
   
-  Veremos agora sobre um dos tipos de diterpenos chamado **_Cafestol_** e o **_ácido hidroxibenzóico_** que faz parte dos **_ácidos orgânicos_** (da mesma família que o ácido cafeico), ambos são utilizados no café e vai nos dar muita energia cerebral ao programar esses elementos... Pois bem, o cafestol _C20H28O3_ é uma instrução para saltos condicionais/incondicionais e chamadas condicionais/incondicionais. Apenas a instrução de salto pode fazer a condição e se for verdadeira, ela salta para um endereço chamado **identificador** (termos do CFOCOL), a mesma coisa é a chamada, na qual é a mesma instrução cafestol, a diferença é que na chamada ela salta se for verdadeiro, executa a instrução e quando identifica o ácido hidroxibenzóico _C7H6O3_, o interpretador retorna para a chamada de origem, ou seja, 1 linha a mais da instrução que chamou a outra instrução. No entanto, os saltos e as chamadas podem ser **incondicionais**, ou seja, não necessitando de uma condição. A partir de agora, iremos utilizar os identificadores nos exemplos e os códigos equivalentes em C, primeiramente vamos ver quais argumentos que especifica um salto ou uma chamada:
+  Veremos agora sobre um dos tipos de diterpenos chamado **_Cafestol_** e o **_ácido hidroxibenzóico_** que faz parte dos **_ácidos orgânicos_** (da mesma família que o ácido cafeico), ambos são utilizados no café e vai nos dar muita energia cerebral ao programar esses elementos... Pois bem, o cafestol _C20H28O3_ é uma instrução para saltos condicionais/incondicionais e chamadas condicionais/incondicionais. A instrução de salto condicional faz a condição e se for verdadeira, ela salta para um endereço chamado **identificador** (termos do CFOCOL), a mesma coisa é a chamada condicional, na qual é a mesma instrução cafestol, a diferença é que na chamada ela salta se for verdadeiro, executa a instrução e quando identifica o ácido hidroxibenzóico _C7H6O3_, o interpretador retorna para a chamada de origem, ou seja, 1 linha a mais da instrução que chamou a outra instrução. No entanto, os saltos e as chamadas podem ser **incondicionais**, ou seja, não necessitando de uma condição. A partir de agora, iremos utilizar os identificadores nos exemplos e os códigos equivalentes em C, primeiramente vamos ver quais argumentos que especifica um salto ou uma chamada:
   
    #### 1ª Argumento (Saltos):
               
@@ -340,11 +340,11 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
   **Código em CFOCOL:**
  
             cup:
-                 0000: C8H10N4O2 ,<$>, !                     -> Exibe o número 0 da posição atual com espaço
-                 0001: C9H8O4 0,1!                           -> desloca +1 posição na memória
-                 0002: C7H8N4O2 0,$,1!                       -> soma +1 na posição atual de memória (inicialmente é 0)
-                 0003: C9H8O4 1,1!                           -> desloca -1 posição na memória
-                 0004: C20H28O3 12,0000,10!                  -> Salta para o identificador 0000 se posição anterior é diferente de 10
+                 0000: C8H10N4O2 ,<$>, !       -> Exibe o número 0 da posição atual com espaço
+                 0001: C9H8O4 0,1!             -> desloca +1 posição na memória
+                 0002: C7H8N4O2 0,$,1!         -> soma +1 na posição atual de memória (inicialmente é 0)
+                 0003: C9H8O4 1,1!             -> desloca -1 posição na memória
+                 0004: C20H28O3 12,0000,10!    -> Salta para o identificador 0000 se posição anterior é diferente de 10
             ; 
             
    **Código em C:**
@@ -382,11 +382,11 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
 **Código em CFOCOL:**
  
            cup:
-                0000: C20H28O3 0,0003,0!                    -> Salto incondicional para a instrução 0003
-                0001: C8H10N4O2 A!                          -> Exibe a letra A 
-                0002: C7H6O3 0,0!                           -> Retorna a chamada de origem
-                0003: C20H28O3 30,0001,0!                   -> Chama a instrução 0001 (Chamada de origem)
-                0004: C8H10N4O2 %Fim do programa%!          -> Exibe "Fim do programa" com quebra de linha no Início e Final
+                0000: C20H28O3 0,0003,0!            -> Salto incondicional para a instrução 0003
+                0001: C8H10N4O2 A!                  -> Exibe a letra A 
+                0002: C7H6O3 0,0!                   -> Retorna a chamada de origem
+                0003: C20H28O3 30,0001,0!           -> Chama a instrução 0001 (Chamada de origem)
+                0004: C8H10N4O2 %Fim do programa%!  -> Exibe "Fim do programa" com quebra de linha no Início e Final
            ;
  
  **Código em C:**
@@ -422,13 +422,13 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
   **Código em CFOCOL:**
  
            cup:
-                0000: C20H28O3 0,0004,0!                    -> Salto incondicional para a instrução 0004
-                0001: C7H8N4O2 0,$,1!                       -> incrementa +1 no valor
-                0002: C8H10N4O2 A !                         -> Exibe a letra A 
-                0003: C7H6O3 1,1!                           -> Retorna para o "endereço de chamada" -1
-                0004: C8H10N4O2 %Exibindo letras%%!         -> Exibe uma string
-                0005: C20H28O3 34,0001,10!                  -> Chama a instrução 0001 se valor for menor que 10
-                0006: C8H10N4O2 %%Fim do programa%!         -> Exibe "Fim do programa" com quebra de linha no Início e Final
+                0000: C20H28O3 0,0004,0!                -> Salto incondicional para a instrução 0004
+                0001: C7H8N4O2 0,$,1!                   -> incrementa +1 no valor
+                0002: C8H10N4O2 A !                     -> Exibe a letra A 
+                0003: C7H6O3 1,1!                       -> Retorna para o "endereço de chamada" -1
+                0004: C8H10N4O2 %Exibindo letras%%!     -> Exibe uma string
+                0005: C20H28O3 34,0001,10!              -> Chama a instrução 0001 se valor for menor que 10
+                0006: C8H10N4O2 %%Fim do programa%!     -> Exibe "Fim do programa" com quebra de linha no Início e Final
            ;
  
  **Código em C:**
@@ -480,7 +480,7 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
          
    O 1ª argumento da instrução _C20H28O3_ sendo 30, seria uma chamada incondicional, mas sendo acima desse valor, Ex.: 31,32,etc.. seria uma chamada condicional, cada valor se refere a um tipo de condição (Como vimos anteriormente), então após a instrução no Id. 0000 chamar a instrução 0004 (que vai exibir "Exibir letras"), o próximo passo será saltar para a instrução no Id. 0001 se o valor da posição atual de memória for menor que 10, satisfazendo a condição, a instrução no Id. 0001 vai somar 0 + 1 na posição de memória, já que o início do valor é 0 por padrão, Na posição 0 agora tendo o valor 1, o próximo passo é executado exibindo a letra A com espaço e após, a instrução de retorno _C7H6O3_ vai retornar para a Instrução 0005 (chamada) + 1, que é 0006, isso se os argumentos da instrução de retorno fosse 0, porém algo mudou, vemos que é "C7H6O3 1,1!". Isso significa que o 1ª argumento da instrução de retorno vai simbolizar a operação: se for 0 é soma, se for 1 é subtração; E o 2ª argumento vai ser o número de deslocamento de retorno, Exemplo: Se naturalmente os argumentos sendo 0, a instrução retornava para o Id. 0006 (0005 + 1), os argumentos sendo "1,1", vai subtrair o deslocamento -1, ou seja, se era 0006, será 0005, exatamente na mesma instrução que efetua a chamada, re-executando a instrução novamente. Se os argumentos fossem 1,3 por exemplo, iria subtrair o deslocamento -3 (0006 - 3 = 0003). Se o primeiro argumento fosse 0, logo iria somar 0006 + 3 = 0009 (esse identificador não existe no código), portanto iria dar erro, retornando para um identificador que não existe.
    
-   Todo esse programa constrói um Loop de repetição onde o retorno da chamada que define esse loop, isso vai depender dos seus argumentos. E aí, a junção de hidroxibenzóico + cafestol, usando argumentos certos, poderá construir inúmeros tipos de loops For, do, While e chamada de funções equivalentes em C, e saltos condicionais je, jne, jb,ja,etc.. + instruções CALLs equivalentes em Assembly. Perceba também que a String "Exibindo letras" só é imprimida uma vez no programa (primeira vez), pois durante a iteração do loop, a instrução de retorno é chamado antes da instrução de impressão.
+   Todo esse programa constrói um Loop de repetição onde é o retorno da chamada que vai definir esse loop, isso vai depender dos seus argumentos. E aí, a junção de hidroxibenzóico + cafestol, usando argumentos certos, poderá construir inúmeros tipos de loops For, do, While e chamada de funções equivalentes em C, e saltos condicionais je, jne, jb,ja,etc.. + instruções CALLs equivalentes em Assembly. Perceba também que a String "Exibindo letras" só é imprimida uma vez no programa (primeira vez), pois durante a iteração do loop, a instrução de retorno é chamado antes da instrução de impressão.
 
 <a href="#menu">Voltar ao menu</a>
 <a name="prog"></a>
@@ -510,7 +510,7 @@ Que tal exibir todos os símbolos da tabela ascii em cfocol? Isto pode ser neces
 
 ![](/Imagens/helloworld.png)
 
-Eis aqui um "simples" Exemplo Hello World. Como em toda linguagem de programação, existe uma forma de entrar nela conhecendo os primeiros programas Hello World, em CFOCOL não é diferente. Por mais que é possível exibir uma frase normal através da instrução de impressões, podemos brincar um pouco exibindo caracteres de forma calculada. Isso é até importante no caso de armazenar Strings em memória, pois esta String pode ser armazenada caractere por caractere em formato decimal calculadamente de forma estática ou dinâmica, podendo até construir sistemas complexos de criptografia.
+Eis aqui um "simples" Exemplo Hello World. Como em toda linguagem de programação, existe uma forma de entrar nela conhecendo os primeiros programas Hello World, em CFOCOL não é diferente. Por mais que é possível exibir uma frase normal através da instrução de impressões, podemos brincar um pouco exibindo caracteres de forma calculada. Isso é até importante no caso de armazenar Strings em memória, pois só é possível uma String ser armazenada caractere por caractere em formato decimal calculadamente de forma estática ou dinâmica e isso também possibilita construir sistemas complexos de criptografia.
 
 #### Programa soma de 5
 
@@ -524,13 +524,13 @@ Este programa apesar de ser simples, é bem interessante por um detalhe: teste d
 <a name="com"></a>
 ### Comentários em CFOCOL
 
-Outra questão que ainda não foi tratada nesta documentação são os _comentários_. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
+Outra questão que ainda não foi tratada nesta documentação são os _comentários_. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso, tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
 
 <a href="#menu">Voltar ao menu</a>
 <a name="inp"></a>
 ### Entrada de dados & Bottles Secundários
 
-Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não foi criada, algumas metodologias seguindo o paradigma do CFOCOL ainda estão sendo pensadas a respeito sobre entrada de dados. Os Bottles Secundários também ainda foi criadas, pois ainda todo o interpretador se baseia apenas em 1 matriz de dados que é relacionado ao Bottle "Cup" (Main), para desenvolver outros Bottles, durante a pré-interpretação, é preciso armazenar os Bottles Secundários em uma outra matriz separada por índices de uma estrutura de dados, onde ocorrerá um **mapeamento** de índices passando como referência o nome do Bottle, e isso será feito em outra versão do CFOCOL, que será a definitiva, incluindo a **entrada de dados** através da Instrução sacarose _C12H22O11_ e possíveis outros sinais da linguagem. Então, A linguagem está na versão Alfa e em breve promete chegar na versão Beta. Abaixo será disponibilizado o Link da outra versão da documentação:
+Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não foi criada, algumas metodologias seguindo o paradigma do CFOCOL ainda estão sendo pensadas a respeito sobre entrada de dados. Os Bottles Secundários também ainda não foram criados, pois ainda todo o interpretador se baseia apenas em 1 matriz de dados que é relacionado ao Bottle "Cup" (Main), para desenvolver outros Bottles, durante a pré-interpretação, é preciso armazenar os Bottles Secundários em uma outra matriz separada por índices de uma estrutura de dados, onde ocorrerá um **mapeamento** de índices passando como referência o nome do Bottle, e isso será feito em outra versão do CFOCOL, que será a definitiva, incluindo a **entrada de dados** através da Instrução sacarose _C12H22O11_ e possíveis outros sinais da linguagem. Então, A linguagem está na versão Alfa e em breve promete chegar na versão Beta. Abaixo será disponibilizado o Link da outra versão da documentação:
 
 (Link não disponível)
 
@@ -622,7 +622,7 @@ A grande questão é que podemos criar nossas próprias cores de novas linguagen
 
 ![](/Imagens/lang1.png)
 
-A partir do momento que você fazer estas configurações e salvar, todos os arquivos que você criar com uma determinada extensão e tipo configurado, vai ser identificado pelo editor e durante o desenvolvimento, os códigos irá se colorir. Neste repositório na pasta Config, já existe um arquivo chamada [EditorConfig.xml](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config), agora mostrarei os passos de como importar este arquivo no Editor Notepad++:
+A partir do momento que você fazer estas configurações e salvar, todos os arquivos que você criar com uma determinada extensão e tipo configurado, vai ser identificado pelo editor e durante o desenvolvimento, os códigos irá se colorir. Neste repositório na pasta Config, já existe um arquivo chamado [EditorConfig.xml](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config), agora mostrarei os passos de como importar este arquivo no Editor Notepad++:
 
 Vá no menu _Linguagem_ e clique em _Defina o seu idioma_:
 
@@ -655,6 +655,6 @@ Perfil no Linkedin: [Wender Francis](https://www.linkedin.com/in/bftcorporations
 Curso D.S.O.S : [Desenvolva um sistema operacional do zero em Assembly que também terá sua própria linguagem de programação](https://www.youtube.com/playlist?list=PLsoiO2Be-2z8BfsSkspJfDiuKeC9-LSca)
 <br><br>
 Agradecimentos BFTCorporations!
-<br>
+<br><br>
 <a href="#menu">Voltar ao menu</a><br>
 <a href="https://github.com/FrancisBFTC/CFOCOL_Programming">Voltar ao repositório</a>
