@@ -10,10 +10,14 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
       *  <a href="#impr"> Impressão de dados </a>
       *  <a href="#salt"> Saltos Condicionais/Incondicionais </a>
       *  <a href="#call"> Chamadas Condicionais/Incondicionais </a>
-      *  <a href="#inp"> Entrada de dados & Bottle Secundários  </a>
+      *  <a href="#inp"> Entrada de dados & Bottles Secundários  </a>
       *  <a href="#com"> Comentários em CFOCOL  </a>
       *  <a href="#prog"> Programas em CFOCOL  </a>
   * <a href="#mode"> Modos de Interpretação </a>
+      *  <a href="#command1"> Via linha de comando  </a>
+      *  <a href="#command2"> Via linha de comando (Variáveis de Ambiente) </a>
+      *  <a href="#click"> Clique Duplo </a>
+  * <a href="#colors"> Cores sintáticas no Editor </a>
   
 <a name="inst"></a> 
 ## Instruções da linguagem
@@ -34,7 +38,8 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
  
     1. C20H28O3  -> salto/chamada condicional ou incondicional - cafestol
     2. C12H22O11 -> Entrada de dados                           - sacarose (açúcar)
-    
+ 
+ <a href="#menu">Voltar ao menu</a>
  <a name="proc"></a> 
 ## Procedimentos e sinais
 
@@ -59,6 +64,7 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
    9.  '#'  -> valor da última posição deslocada
    10. '<>' -> exibição de inteiros das posições
   
+  <a href="#menu">Voltar ao menu</a>
    <a name="func"></a> 
    ## Funcionalidades do CFOCOL
    <a name="op"></a> 
@@ -107,6 +113,8 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
         
         O valor final da posição atual (0) é 17 -> recuperado por $
         O valor final da posição anterior (1) é 2 -> recuperado por #  
+  
+  <a href="#menu">Voltar ao menu</a>
   <a name="sel"></a>     
   ### Seleção/Deslocamento de memória
   
@@ -131,6 +139,8 @@ Os Bottles (Garrafas) são os procedimentos/rotinas do CFOCOL, o Bottle (funçã
         
         Resultado final: $ = 0 (valor e posição)
                          # = 5 (valor e posição)
+   
+   <a href="#menu">Voltar ao menu</a>
    <a name="impr"></a>                     
    ### Impressão de dados                      
        
@@ -205,6 +215,8 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
               2ª Valor: b
               1ª Valor: 97
               2ª Valor: 98
+   
+   <a href="#menu">Voltar ao menu</a>
    <a name="salt"></a>           
   ### Saltos Condicionais/Incondicionais
   
@@ -360,6 +372,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
    
   Nestes códigos exemplos, nós incrementamos um valor mas exibimos outro, ou seja, uma variável em C é incrementada e utilizada na condição e a outra variável é exibida mas nunca incrementada, no total de 10 vezes. No Assembly a mesma coisa é feita, cl é incrementado e comparado mas o que é exibido é o que está em al que é o char '0'. Tudo isso se trata de exibir um valor diferente daquele que é o incremento, pois o valor de incremento só é utilizado como _contador_ de um programa, em CFOCOL não é diferente, podemos ter inúmeros valores pra exibir em posições de memória totalmente distintas e utilizando um contador individual de incremento. Por enquanto, tudo parece simples, pois temos um programa menor, mas como a própria frase de Alan perling diz sobre as linguagens Turing Tarpit: "Cuidado com o Turing Tarpit, onde tudo é possível mas nada de interessante é fácil". Isso quer dizer que, quanto maior for a necessidade do nosso programa, maior é a quantidade de variáveis diferentes a ser utilizadas e mais complexo será o programa em CFOCOL pois não existem variáveis em CFOCOL, e aí, uma tremenda gambiarra de operações aritméticas + deslocamento de memória deve ser feita para alcançar tal propósito, muito café deve estar armazenado no organismo para atingir tal privilégio porque não é impossível, mas é difícil. Então tudo isso, pode alimentar a teoria de que os limites das possibilidades de um método funcional pode ser testado, a fim de chegar numa conclusão de como um programa "quase-primordial" pode simular na vida real. CFOCOL não é uma linguagem Turing Completa, mesmo adotando algumas características, mas chega perto dessa categoria mesclados com conceitos imperativos de programação. 
   
+  <a href="#menu">Voltar ao menu</a>
   <a name="call"></a>  
  ### Chamadas Condicionais/Incondicionais
  
@@ -469,6 +482,7 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
    
    Todo esse programa constrói um Loop de repetição onde o retorno da chamada que define esse loop, isso vai depender dos seus argumentos. E aí, a junção de hidroxibenzóico + cafestol, usando argumentos certos, poderá construir inúmeros tipos de loops For, do, While e chamada de funções equivalentes em C, e saltos condicionais je, jne, jb,ja,etc.. + instruções CALLs equivalentes em Assembly. Perceba também que a String "Exibindo letras" só é imprimida uma vez no programa (primeira vez), pois durante a iteração do loop, a instrução de retorno é chamado antes da instrução de impressão.
 
+<a href="#menu">Voltar ao menu</a>
 <a name="prog"></a>
 ### Programas em CFOCOL
 
@@ -506,11 +520,13 @@ Este programa apesar de ser simples, é bem interessante por um detalhe: teste d
 
 [Saiba mais sobre outros códigos na pasta Examples](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Examples)
 
+<a href="#menu">Voltar ao menu</a>
 <a name="com"></a>
 ### Comentários em CFOCOL
 
 Outra questão que ainda não foi tratada nesta documentação são os _comentários_. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
 
+<a href="#menu">Voltar ao menu</a>
 <a name="inp"></a>
 ### Entrada de dados & Bottles Secundários
 
@@ -518,9 +534,11 @@ Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não fo
 
 (Link não disponível)
 
+<a href="#menu">Voltar ao menu</a>
 <a name="mode"></a>
 ### Modos de interpretação
 
+<a name="command1"></a>
 #### Via linha de comando
 
 Para executar via linha de comando, apenas abra o CMD e navegue até o diretório que contém o executável do cfocol. O interpretador só requere 1 argumento na linha de comando - o nome do arquivo/diretório do arquivo. No entanto, é preciso conhecer a extensão utilizada em arquivos CFOCOL e são elas: .cf, .cfl e .cop. O interpretador vai reconhecer apenas essas 3 extensões de arquivos, veja o exemplo do arquivo resto.cf sendo interpretado de 3 extensões diferentes:
@@ -535,6 +553,8 @@ Tente interpretar um arquivo com uma extensão diferente e veja o que acontece:
 
 Por enquanto, não existem outros parâmetros de linha de comando na versão Alfa do interpretador, como por exemplo: --verbose, --debug. Isto porque a linguagem ainda não está completa.
 
+<a href="#menu">Voltar ao menu</a>
+<a name="command2"></a>
 #### Via linha de comando global (Variáveis de Ambiente)
 
 Para executar o interpretador em qualquer região do computador, é preciso adicionar na variável PATH das Variáveis de Ambiente do sistema. Se tiver utilizando Windows 7, vá em "computador" ou "Meu computador", clique em _propriedades_, no painel de controle abra as _Configurações avançadas do sistema_, na janela que abriu clique no botão _Variáveis de Ambiente_ e na região de Variáveis do sistema, procure e selecione a variável _path_, clique no botão _Editar_ e vai até o final do valor onde está o ;, após o ; adicione o diretório onde está o executável **cfocol.exe**, Exemplo: C:\CFOCOL\;, após isso é só dar os OKs e pronto.
@@ -542,6 +562,8 @@ Para executar o interpretador em qualquer região do computador, é preciso adic
 ![](/Imagens/varsamb.png)
 ![](/Imagens/global.png)
 
+<a href="#menu">Voltar ao menu</a>
+<a name="click"></a>
 #### Clique Duplo
 
 Outra opção de interpretação é dar **Cliques duplos** nos arquivos CFOCOL. No momento que cria um arquivo no computador, cuja extensão é desconhecida pelo sistema operacional, pela primeira vez, o sistema operacional cria registros no banco de dados do sistema com uma pasta nomeada com a extensão criada, Exemplo: .cf, .cop,etc.. nas chaves do sistema e de usuário desse registro, a extensão ainda está vazia, ou seja, não contém nenhuma informação relevante para o sistema operacional interpretar o tipo daquele arquivo, portanto o padrão de todo tipo de arquivo desconhecido pré-criado será - **Abre com:** _DLL comum do Shell..._; **Tipo de arquivo:** Arquivo EXTENSÃO (onde a palavra EXTENSÃO é substituída pela extensão criada pela primeira vez), no nosso Exemplo seria: Arquivo CF, Arquivo CFL, etc... a forma mais simples de fazer o S.O adicionar mais informações para aquele tipo de arquivo é **Abrir o arquivo com algum programa** pela primeira vez, e marcar pra sempre abrir com aquele programa quando ser clicado, o nosso programa é o interpretador cfocol.exe, então veja o antes e o depois nas imagens do arquivo sem um programa associado e com uma associação:
@@ -588,6 +610,8 @@ Vamos identificar agora onde é obtido este diretório. Primeiramente, é precis
 
 Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa pra ser explicado nessa documentação, então resolvi disponibilizar no mesmo repositório na pasta **Config** o arquivo [cfocol_registry](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config) que terá o Script de registros pra executar todas as configurações das 3 extensões do CFOCOL mas isso pode ser alterado de sua escolha, algumas configurações como as "configurações adicionais" sobre Editor a ser utilizado pode ser mudado no Script, porém é preciso conhecer sobre a Edição de registros (Como dito anteriormente, esta é a forma programada), então se não tem conhecimento sobre o assunto, recomendo que assista o vídeo [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY).
 
+<a href="#menu">Voltar ao menu</a>
+<a name="colors"></a>
 ### Cores sintáticas no Editor
 
 Pra finalizarmos essa documentação, vamos falar sobre as configurações do Editor. Todos os editores modernos contém uma identificação de linguagem de programação e quando se salva um arquivo com uma determinada extensão, o editor já identifica a linguagem e automaticamente colore os códigos durante o desenvolvimento, isso também facilita muito na hora de visualizar e desenvolver os algoritmos. Cada linguagem tem sua própria configuração no Editor, com fontes, cores e tamanhos diferenciados pra cada operador, instrução, variáveis ou até comentários. Estas configurações são identificadas pelo Editor através de arquivos XML e podem ser alteradas tanto em arquivos XML quanto no menu de **Linguagem** do Editor. Veja no exemplo abaixo um código em C do arquivo cfocol.cpp no Notepad++ e a configuração de linguagem desse editor:
@@ -616,13 +640,21 @@ Todas as configurações salvas de novas linguagens, irá armazenar no menu **li
 
 Para conhecer mais sobre esse assunto de Edição de cores em códigos no Notepad++, clique no link [Criando visual de códigos de uma linguagem própria no Notepad++](https://www.youtube.com/watch?v=tjg0f8krCwk)
 
+<a href="#menu">Voltar ao menu</a>
+
+
 Então, isso é tudo que devemos saber sobre o cfocol por enquanto, vimos muita coisa nesta documentação, porém possivelmente nas próximas versões após a linguagem ficar completa, o desenvolvimento vai ficar mais amplo, ou seja, seria uma boa idéia criar uma IDE própria para o CFOCOL que consegue reconhecer instruções específicas e aliás, ter as mesmas configurações de linguagem do Notepad++ mas por enquanto vamos apenas focar no funcionamento da linguagem.
 
 Enfim, quero agradecer por ter chegado até aqui e meus parabéns! você realmente ultrapassou os limites da cafeína no organismo e tem de sobra pra poder programar em qualquer linguagem de programação (não importa a sua complexidade). É uma honra pra mim está compartilhando este repositório para pessoas que querem aprender a desenvolver uma linguagem de programação ou até aqueles que pretendem colaborar com o projeto e tornar a linguagem mais eficiente e segura, como também abrir novas oportunidades de funções, novas linguagens e novos paradigmas. Então, aproveite o desenvolvimento em CFOCOL!
 
-Canal no Youtube: [BFTCorporations](https://www.youtube.com/channel/UCAC2WHKy7UmEQXaZbMfcszg)
-Perfil no Facebook: [Wender Francis (francis.bftc)](https://www.facebook.com/francis.bftc)
-Perfil no Instagram: [Francis.System (@francisbftc.sys)](https://www.instagram.com/francisbftc.sys/)
-Perfil no Linkedin: [Wender Francis](https://www.linkedin.com/in/bftcorporations/)
-
+Canal no Youtube: [BFTCorporations](https://www.youtube.com/channel/UCAC2WHKy7UmEQXaZbMfcszg)<br>
+Perfil no Facebook: [Wender Francis (francis.bftc)](https://www.facebook.com/francis.bftc)<br>
+Perfil no Instagram: [Francis.System (@francisbftc.sys)](https://www.instagram.com/francisbftc.sys/)<br>
+Perfil no Linkedin: [Wender Francis](https://www.linkedin.com/in/bftcorporations/)<br>
+<br>
 Curso D.S.O.S : [Desenvolva um sistema operacional do zero em Assembly que também terá sua própria linguagem de programação](https://www.youtube.com/playlist?list=PLsoiO2Be-2z8BfsSkspJfDiuKeC9-LSca)
+<br><br>
+Agradecimentos BFTCorporations!
+
+<a href="#menu">Voltar ao menu</a>
+<a href="https://github.com/FrancisBFTC/CFOCOL_Programming">Voltar ao repositório</a>
