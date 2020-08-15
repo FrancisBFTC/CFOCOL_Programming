@@ -540,5 +540,56 @@ Perceba que após o arquivo ser associado ao executável, podemos clicar 2 vezes
 
 ![](/Imagens/assoc5.png)
 
-No entanto, como vimos na imagem, apenas o programa em que o arquivo é aberto, é atribuído e associado, pois apenas esta informação é armazenada no Editor de registros do S.O, porém ainda se mantém o nome padrão **Arquivo CF** ou **Arquivo COP**, você poderá editar manualmente o Editor de registros para adicionar mais informações como: Ao clicar em **Editar** sobre o arquivo, ele abre com um Editor padrão; Ter uma lista de programas possíveis para o arquivo ser aberto; Alterar a descrição do tipo de arquivo - em vez de **Arquivo CF**, algo como, **Arquivo de programação CFOCOL**, ou, **CFOCOL File**; Executar diversos parâmetros do interpretador através do mouse; e Por aí vai... são muitas coisas que se pode fazer sobre um arquivo com extensão nova de linguagem pelo Editor de Registros, só é recomendável sempre estudar melhor sobre o assunto para não mecher com chaves erradas no Registro, pois isso pode danificar o sistema operacional. Existe 2 formas para fazer todas essas operações com segurança nos arquivos CFOCOL: Manual e Programado. Para saber mais sobre o assunto, acesse o vídeo do Youtube que ensino: [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY), clicando neste link você será redirecionado para o meu canal no Youtube onde ensino as 2 formas que falei pra fazer alteração nos registros. Veja na imagem abaixo como que fica algumas alterações no arquivo dos Registros:
+No entanto, como vimos na imagem, apenas o programa em que o arquivo é aberto, é atribuído e associado, pois apenas esta informação é armazenada no Editor de registros do S.O, porém ainda se mantém o nome padrão **Arquivo CF** ou **Arquivo COP**, você poderá editar manualmente o Editor de registros para adicionar mais informações como: Ao clicar em **Editar** sobre o arquivo, ele abre com um Editor padrão; Ter uma lista de programas possíveis para o arquivo ser aberto; Alterar a descrição do tipo de arquivo - em vez de **Arquivo CF**, algo como, **Arquivo de programação CFOCOL**, ou, **CFOCOL File**; Executar diversos parâmetros do interpretador através do mouse; e Por aí vai... são muitas coisas que se pode fazer sobre um arquivo com extensão nova de linguagem pelo Editor de Registros, só é recomendável sempre estudar melhor sobre o assunto para não mecher com chaves erradas no Registro, pois isso pode danificar o sistema operacional. Existe 2 formas para fazer todas essas operações com segurança nos arquivos CFOCOL: Manual e Programado. Para saber mais sobre o assunto, acesse o vídeo do Youtube que ensino: [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY), clicando neste link você será redirecionado para o meu canal no Youtube onde ensino as 2 formas que falei pra fazer alteração nos registros. Veja abaixo algumas imagens de exemplos após a edição do Editor de Registros:
 
+![](/Imagens/icon0.png)
+
+Primeiro, resolvi testar um ícone comum do Shell do sistema operacional Windows. Este ícone se encontra no diretório e arquivo _%SystemRoot%\system32\SHELL32.dll_ (mais na frente mostrarei onde que identifica isso). Percebam que no **Tipo de arquivo** o nome foi alterado de **Arquivo CF** para **CFOCOL Programming File** e tanto as 3 extensões (.cf, .cfl e .cop) acompanham essa mudança, tudo isso é feito no Editor de registros.
+
+![](/Imagens/icon1.png)
+
+Já este ícone é enganador mas não é o que está pensando, ele é o ícone de pasta padrão do sistema operacional, e se encontra no mesmo arquivo _SHELL32.dll_, porém não na posição 0 mas em outra posição. Quando é inserido numa determinada chave do registro um diretório com arquivo DLL, pode-se especificar a posição separado por vírgulas, este ícone teria a posição 3, ficando assim no registro: _%SystemRoot%\system32\SHELL32.dll,3_, Então estes ícones não vem do executável CFOCOL, porque em relação ao CFOCOL nada foi alterado sobre Ícones do software e também estes arquivos CFOCOL não são "Atalhos", onde se pode alterar o ícone de forma comum, mesmo tendo ícone de pastas eles ainda são arquivos CFOCOL executáveis com duplo cliques.
+
+![](/Imagens/icon2.png)
+
+E até mesmo nesta imagem utilizo uma DLL do VisualStudio, onde a DLL é chamada de: Microsoft.VisualStudio.ORDesigner.DslPackage.dll. Onde o ícone da imagem faz parte de uma função interna do VisualStudio e pode ser alterado na mesma chave de registro do Windows.
+
+![](/Imagens/icon3.png)
+
+Então, decidi definitivamente usar este ícone do próprio sistema operacional, Pois ele tem mais cara de um arquivo de Fórmulas químicas. em outras ocasiões podemos ver/criar ícones melhores. Este ícone assume o seguinte valor do sistema: _%SystemRoot%\system32\SHELL32.dll,84_; Ele está na 84ª posição da DLL e é inserida na chave cuja estrutura de pastas mostrarei na próxima imagem:
+
+![](/Imagens/RegEditConf.png)
+
+Na esquerda são as estruturas de pastas que chamamos de _Chaves de registros_, cada Chave (Pasta) pode assumir **nomes** e **valores**. Então, Na direita é que são definido esses Valores, que podem ser binários, nulos ou como **Cadeia de caracteres**. Exemplo: a Chave **cfocol.file** tem o valor padrão "CFOCOL Programming File", na qual irá aparecer nos tipos de arquivos associados a esta chave, dentro da chave cfocol.file, existem as sub-chaves e uma delas é a **DefaultIcon** - O valor padrão dessa sub-chave deve ter o diretório de um executável ou uma DLL, cujo executável contém o mesmo ícone, porém se for uma DLL, deve especificar uma posição numérica no final do valor da sub-chave. no caso do _%SystemRoot%\system32\SHELL32.dll,84_ é inserido exatamente como valor padrão do DefaultIcon, para manter o ícone definitivo mostrado na imagem anterior.
+
+Vamos identificar agora onde é obtido este diretório. Primeiramente, é preciso criar um atalho de qualquer arquivo, após criar, clicar em _propriedades_ do arquivo e depois clicar em _Alterar Ícone_ na próxima janela que se abrirá, vai aparecer inúmeros ícones do sistema operacional que se pode escolher, cada ícone terá uma posição numérica contada de cima pra baixo e todos esses ícones terá um campo especificando o diretório dll onde se encontra, basta contar os ícones de cima pra baixo, identificar a posição e acrescentar esta posição após o diretório, veja na imagem abaixo:
+
+![](/Imagens/icon4.png)
+
+Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa pra ser explicado nessa documentação, então resolvi disponibilizar no mesmo repositório na pasta **Config** o arquivo [cfocol_registry](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config) que terá o Script de registros pra executar todas as configurações das 3 extensões do CFOCOL mas isso pode ser alterado de sua escolha, algumas configurações como as "configurações adicionais" sobre Editor a ser utilizado pode ser mudado no Script, porém é preciso conhecer sobre a Edição de registros (Como dito anteriormente, esta é a forma programada), então se não tem conhecimento sobre o assunto, recomendo que assista o vídeo [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY).
+
+### Cores sintáticas no Editor
+
+Pra finalizarmos essa documentação, vamos falar sobre as configurações do Editor. Todos os editores modernos contém uma identificação de linguagem de programação e quando se salva um arquivo com uma determinada extensão, o editor já identifica a linguagem e automaticamente colore os códigos durante o desenvolvimento, isso também facilita muito na hora de visualizar e desenvolver os algoritmos. Cada linguagem tem sua própria configuração no Editor, com fontes, cores e tamanhos diferenciados pra cada operador, instrução, variáveis ou até comentários. Estas configurações são identificadas pelo Editor através de arquivos XML e podem ser alteradas tanto em arquivos XML quanto no menu de **Linguagem** do Editor. Veja no exemplo abaixo um código em C do arquivo cfocol.cpp no Notepad++ e a configuração de linguagem desse editor:
+
+![](/Imagens/lang0.png)
+
+A grande questão é que podemos criar nossas próprias cores de novas linguagens, exportando e importando arquivos XML que colore automaticamente nossos códigos. No Notepad++ isso é feito no menu **Linguagem** e **Defina o seu idioma**, logo uma janela irá se abrir pra fazer inúmeras edições de cores sintáticas:
+
+![](/Imagens/lang1.png)
+
+A partir do momento que você fazer estas configurações e salvar, todos os arquivos que você criar com uma determinada extensão e tipo configurado, vai ser identificado pelo editor e durante o desenvolvimento, os códigos irá se colorir. Neste repositório na pasta Config, já existe um arquivo chamada [EditorConfig.xml](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config), agora mostrarei os passos de como importar este arquivo no Editor Notepad++:
+
+Vá no menu _Linguagem_ e clique em _Defina o seu idioma_:
+![](/Imagens/lang2.png)
+
+Na janela que abriu, clique no Botão _Importar_ e escolha o arquivo _EditorConfig.xml_:
+![](/Imagens/lang3.png)
+
+Após isso, é só marcar em **idioma do...** a opção **cfocol** e todas as configurações de cores de palavras-chaves estarão lá, disponíveis pra ser alteradas ou utilizadas. Pode-se exportar outros tipos de configurações pra outras linguagens também.
+
+![](/Imagens/lang4.png)
+
+Todas as configurações salvas de novas linguagens, irá armazenar no menu **linguagem**, quando criar um arquivo cfocol pela primeira vez, marque o nome **cfocol** no menu **linguagem**, abaixo do **Defina o seu idioma** e partir daí, toda vez que salvar um arquivo na extensão .cf, .cfl ou .cop, o Editor automaticamente irá colorir os códigos do CFOCOL.
+
+Para conhecer mais sobre esse assunto de Edição de cores em códigos no Notepad++, clique no link [Criando visual de códigos de uma linguagem própria no Notepad++](https://www.youtube.com/watch?v=tjg0f8krCwk)
