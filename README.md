@@ -503,6 +503,21 @@ Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não fo
 
 #### Via linha de comando
 
-Para executar via linha de comando, apenas abra o CMD e navegue até o diretório que contém o executável do cfocol. O interpretador só requere 1 argumento na linha de comando - o nome do arquivo. No entanto, é preciso conhecer a extensão utilizada em arquivos CFOCOL e são elas: .cf, .cfl e .cop. O interpretador vai reconhecer apenas essas 3 extensões de arquivos
+Para executar via linha de comando, apenas abra o CMD e navegue até o diretório que contém o executável do cfocol. O interpretador só requere 1 argumento na linha de comando - o nome do arquivo/diretório do arquivo. No entanto, é preciso conhecer a extensão utilizada em arquivos CFOCOL e são elas: .cf, .cfl e .cop. O interpretador vai reconhecer apenas essas 3 extensões de arquivos, veja o exemplo do arquivo resto.cf sendo interpretado de 3 extensões diferentes:
 
+![](/Imagens/ext1.png)
+![](/Imagens/ext2.png)
+![](/Imagens/ext3.png)
 
+Tente interpretar um arquivo com uma extensão diferente e veja o que acontece:
+
+![](/Imagens/ext4.png)
+
+Por enquanto, não existem outros parâmetros de linha de comando na versão Alfa do interpretador, como por exemplo: --verbose, --debug. Isto porque a linguagem ainda não está completa.
+
+#### Via linha de comando global (Variáveis de Ambiente)
+
+Para executar o interpretador em qualquer região do computador, é preciso adicionar na variável PATH das Variáveis de Ambiente do sistema. Se tiver utilizando Windows 7, vá em "computador" ou "Meu computador", clique em _propriedades_, no painel de controle abra as _Configurações avançadas do sistema_, na janela que abriu clique no botão _Variáveis de Ambiente_ e na região de Variáveis do sistema, procure e selecione a variável _path_, clique no botão _Editar_ e vai até o final do valor onde está o ;, após o ; adicione o diretório onde está o executável **cfocol.exe**, Exemplo: C:\CFOCOL\;, após isso é só dar os OKs e pronto.
+
+![](/Imagens/varsamb.png)
+![](/Imagens/global.png)
