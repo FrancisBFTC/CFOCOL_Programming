@@ -5,12 +5,15 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
   * <a href="#inst"> Instruções da linguagem </a>
   * <a href="#proc"> Procedimentos & Sinais </a>
   * <a href="#func"> Funcionalidades do CFOCOL </a>
-      * 1. <a href="#op"> Operações aritméticas </a>
-      * 2. <a href="#sel"> Seleção/Deslocamento de memória </a>
-      * 3. <a href="#impr"> Impressão de dados </a>
-      * 4. <a href="#salt"> Saltos Condicionais/Incondicionais </a>
-      * 5. <a href="#call"> Chamadas Condicionais/Incondicionais </a>
-      * 6 <a href="#salt"> Operações aritméticas </a>
+      *  <a href="#op"> Operações aritméticas </a>
+      *  <a href="#sel"> Seleção/Deslocamento de memória </a>
+      *  <a href="#impr"> Impressão de dados </a>
+      *  <a href="#salt"> Saltos Condicionais/Incondicionais </a>
+      *  <a href="#call"> Chamadas Condicionais/Incondicionais </a>
+      *  <a href="#inp"> Entrada de dados & Bottle Secundários  </a>
+      *  <a href="#com"> Comentários em CFOCOL  </a>
+      *  <a href="#prog"> Programas em CFOCOL  </a>
+  * <a href="#mode"> Modos de Interpretação </a>
   
 <a name="inst"></a> 
 ## Instruções da linguagem
@@ -356,6 +359,7 @@ Se quiser exibir caracteres na mesma linha só que com um espaço entre eles, s�
                     
    
   Nestes códigos exemplos, nós incrementamos um valor mas exibimos outro, ou seja, uma variável em C é incrementada e utilizada na condição e a outra variável é exibida mas nunca incrementada, no total de 10 vezes. No Assembly a mesma coisa é feita, cl é incrementado e comparado mas o que é exibido é o que está em al que é o char '0'. Tudo isso se trata de exibir um valor diferente daquele que é o incremento, pois o valor de incremento só é utilizado como _contador_ de um programa, em CFOCOL não é diferente, podemos ter inúmeros valores pra exibir em posições de memória totalmente distintas e utilizando um contador individual de incremento. Por enquanto, tudo parece simples, pois temos um programa menor, mas como a própria frase de Alan perling diz sobre as linguagens Turing Tarpit: "Cuidado com o Turing Tarpit, onde tudo é possível mas nada de interessante é fácil". Isso quer dizer que, quanto maior for a necessidade do nosso programa, maior é a quantidade de variáveis diferentes a ser utilizadas e mais complexo será o programa em CFOCOL pois não existem variáveis em CFOCOL, e aí, uma tremenda gambiarra de operações aritméticas + deslocamento de memória deve ser feita para alcançar tal propósito, muito café deve estar armazenado no organismo para atingir tal privilégio porque não é impossível, mas é difícil. Então tudo isso, pode alimentar a teoria de que os limites das possibilidades de um método funcional pode ser testado, a fim de chegar numa conclusão de como um programa "quase-primordial" pode simular na vida real. CFOCOL não é uma linguagem Turing Completa, mesmo adotando algumas características, mas chega perto dessa categoria mesclados com conceitos imperativos de programação. 
+  
   <a name="call"></a>  
  ### Chamadas Condicionais/Incondicionais
  
@@ -465,7 +469,7 @@ Então, nosso próximo passo é substituir a **operação de salto** por **opera
    
    Todo esse programa constrói um Loop de repetição onde o retorno da chamada que define esse loop, isso vai depender dos seus argumentos. E aí, a junção de hidroxibenzóico + cafestol, usando argumentos certos, poderá construir inúmeros tipos de loops For, do, While e chamada de funções equivalentes em C, e saltos condicionais je, jne, jb,ja,etc.. + instruções CALLs equivalentes em Assembly. Perceba também que a String "Exibindo letras" só é imprimida uma vez no programa (primeira vez), pois durante a iteração do loop, a instrução de retorno é chamado antes da instrução de impressão.
 
-
+<a name="prog"></a>
 ### Programas em CFOCOL
 
 Veremos alguns programas em CFOCOL para problemas mais simples, estes programas estão na pasta **Examples** dentro deste repositório:
@@ -502,16 +506,19 @@ Este programa apesar de ser simples, é bem interessante por um detalhe: teste d
 
 [Saiba mais sobre outros códigos na pasta Examples](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Examples)
 
+<a name="com"></a>
 ### Comentários em CFOCOL
 
 Outra questão que ainda não foi tratada nesta documentação são os _comentários_. Perceba que durante as explicações das funcionalidades das instruções, após a finalização de todas as instruções CFOCOL, identificados pelo símbolo '!', colocamos uma descrição daquela instrução sempre com um símbolo '->', porém isso é só uma referência a descrição e não uma regra de comentários, Pois nos comentários não existem regras de símbolos, apenas uma convenção que pode ser alterada por qualquer programador, isso explica o motivo das imagens mostradas anteriormente ter os comentários entre aspas, não é uma regra. Qualquer texto, colocado após o símbolo '!' de exclamação, será ignorado. A execução de instruções finaliza no símbolo !, após isso tudo é comentário porém por uma convenção, pode ser colocado símbolos identificadores de comentários, para facilitar na manutenção do código.
 
+<a name="inp"></a>
 ### Entrada de dados & Bottles Secundários
 
 Por enquanto, as funcionalidades de Inputs (Entrada de dados do teclado) não foi criada, algumas metodologias seguindo o paradigma do CFOCOL ainda estão sendo pensadas a respeito sobre entrada de dados. Os Bottles Secundários também ainda foi criadas, pois ainda todo o interpretador se baseia apenas em 1 matriz de dados que é relacionado ao Bottle "Cup" (Main), para desenvolver outros Bottles, durante a pré-interpretação, é preciso armazenar os Bottles Secundários em uma outra matriz separada por índices de uma estrutura de dados, onde ocorrerá um **mapeamento** de índices passando como referência o nome do Bottle, e isso será feito em outra versão do CFOCOL, que será a definitiva, incluindo a **entrada de dados** através da Instrução sacarose _C12H22O11_ e possíveis outros sinais da linguagem. Então, A linguagem está na versão Alfa e em breve promete chegar na versão Beta. Abaixo será disponibilizado o Link da outra versão da documentação:
 
 (Link não disponível)
 
+<a name="mode"></a>
 ### Modos de interpretação
 
 #### Via linha de comando
