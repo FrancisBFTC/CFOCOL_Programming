@@ -566,6 +566,30 @@ Vamos identificar agora onde é obtido este diretório. Primeiramente, é precis
 
 ![](/Imagens/icon4.png)
 
-Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa pra ser explicado nessa documentação, então resolvi disponibilizar no mesmo repositório na pasta **Config** o arquivo [cfocol_registry]() que terá o Script de registros pra executar todas as configurações das 3 extensões do CFOCOL mas isso pode ser alterado de sua escolha, algumas configurações como as "configurações adicionais" sobre Editor a ser utilizado pode ser mudado no Script, porém é preciso conhecer sobre a Edição de registros (Como dito anteriormente, esta é a forma programada), então se não tem conhecimento sobre o assunto, recomendo que assista o vídeo [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY).
+Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa pra ser explicado nessa documentação, então resolvi disponibilizar no mesmo repositório na pasta **Config** o arquivo [cfocol_registry](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config) que terá o Script de registros pra executar todas as configurações das 3 extensões do CFOCOL mas isso pode ser alterado de sua escolha, algumas configurações como as "configurações adicionais" sobre Editor a ser utilizado pode ser mudado no Script, porém é preciso conhecer sobre a Edição de registros (Como dito anteriormente, esta é a forma programada), então se não tem conhecimento sobre o assunto, recomendo que assista o vídeo [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY).
 
-Pra finalizarmos essa documentação...
+### Cores sintáticas no Editor
+
+Pra finalizarmos essa documentação, vamos falar sobre as configurações do Editor. Todos os editores modernos contém uma identificação de linguagem de programação e quando se salva um arquivo com uma determinada extensão, o editor já identifica a linguagem e automaticamente colore os códigos durante o desenvolvimento, isso também facilita muito na hora de visualizar e desenvolver os algoritmos. Cada linguagem tem sua própria configuração no Editor, com fontes, cores e tamanhos diferenciados pra cada operador, instrução, variáveis ou até comentários. Estas configurações são identificadas pelo Editor através de arquivos XML e podem ser alteradas tanto em arquivos XML quanto no menu de **Linguagem** do Editor. Veja no exemplo abaixo um código em C do arquivo cfocol.cpp no Notepad++ e a configuração de linguagem desse editor:
+
+![](/Imagens/lang0.png)
+
+A grande questão é que podemos criar nossas próprias cores de novas linguagens, exportando e importando arquivos XML que colore automaticamente nossos códigos. No Notepad++ isso é feito no menu **Linguagem** e **Defina o seu idioma**, logo uma janela irá se abrir pra fazer inúmeras edições de cores sintáticas:
+
+![](/Imagens/lang1.png)
+
+A partir do momento que você fazer estas configurações e salvar, todos os arquivos que você criar com uma determinada extensão e tipo configurado, vai ser identificado pelo editor e durante o desenvolvimento, os códigos irá se colorir. Neste repositório na pasta Config, já existe um arquivo chamada [EditorConfig.xml](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config), agora mostrarei os passos de como importar este arquivo no Editor Notepad++:
+
+Vá no menu _Linguagem_ e clique em _Defina o seu idioma_:
+![](/Imagens/lang2.png)
+
+Na janela que abriu, clique no Botão _Importar_ e escolha o arquivo _EditorConfig.xml_:
+![](/Imagens/lang3.png)
+
+Após isso, é só marcar em **idioma do...** a opção **cfocol** e todas as configurações de cores de palavras-chaves estarão lá, disponíveis pra ser alteradas ou utilizadas. Pode-se exportar outros tipos de configurações pra outras linguagens também.
+
+![](/Imagens/lang4.png)
+
+Todas as configurações salvas de novas linguagens, irá armazenar no menu **linguagem**, quando criar um arquivo cfocol pela primeira vez, marque o nome **cfocol** no menu **linguagem**, abaixo do **Defina o seu idioma** e partir daí, toda vez que salvar um arquivo na extensão .cf, .cfl ou .cop, o Editor automaticamente irá colorir os códigos do CFOCOL.
+
+Para conhecer mais sobre esse assunto de Edição de cores em códigos no Notepad++, clique no link [Criando visual de códigos de uma linguagem própria no Notepad++](https://www.youtube.com/watch?v=tjg0f8krCwk)
