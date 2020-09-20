@@ -17,6 +17,7 @@ O CFOCOL é uma esolang denominada Chemical Formula of Coffe-oriented Language o
       *  <a href="#command1"> Via linha de comando  </a>
       *  <a href="#command2"> Via linha de comando global (Variáveis de Ambiente) </a>
       *  <a href="#click"> Clique Duplo </a>
+      *  <a href="#linux">Executando em distros Linux</a>
   * <a href="#colors"> Cores sintáticas no Editor </a>
   
 <a name="inst"></a> 
@@ -609,6 +610,31 @@ Vamos identificar agora onde é obtido este diretório. Primeiramente, é precis
 ![](/Imagens/icon4.png)
 
 Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa pra ser explicado nessa documentação, então resolvi disponibilizar no mesmo repositório na pasta **Config** o arquivo [cfocol_registry](https://github.com/FrancisBFTC/CFOCOL_Programming/tree/master/Config) que terá o Script de registros pra executar todas as configurações das 3 extensões do CFOCOL mas isso pode ser alterado de sua escolha, algumas configurações como as "configurações adicionais" sobre Editor a ser utilizado pode ser mudado no Script, porém é preciso conhecer sobre a Edição de registros (Como dito anteriormente, esta é a forma programada), então se não tem conhecimento sobre o assunto, recomendo que assista o vídeo [**Como criar tipos & Extensões de arquivos no Editor de Registros**](https://www.youtube.com/watch?v=vNV6SAtMvgY).
+
+<a href="#menu">Voltar ao menu</a>
+<a name="linux"/>
+Caso esteja usando uma distribuição Linux, apenas será possível executar o interpretador usando o Wine.
+Para instalá-lo é muito simples, se estiver em uma distribuição baseada em Debian (Ubuntu, Linux Mint, etc) abra do terminal e execute:
+```
+sudo apt update
+sudo apt install wine
+```
+
+E caso esteja a usar uma distribuição baseada em Red Hat (ex: Fedora, CentOS, etc), execute:
+```
+sudo dnf install wine
+```
+
+Para executar o interpretador basta ir para a pasta do mesmo e executar:
+```
+wine cfocol.exe
+```
+
+Exemplo:
+```
+wine cfocol.exe Examples/HelloWorld.cf
+```
+
 
 <a href="#menu">Voltar ao menu</a>
 <a name="colors"></a>
