@@ -613,6 +613,8 @@ Existem outras estruturas de pastas em outras chaves mas isto seria muita coisa 
 
 <a href="#menu">Voltar ao menu</a>
 <a name="linux"/>
+### Executando em distros Linux
+
 Caso esteja usando uma distribuição Linux, apenas será possível executar o interpretador usando o Wine.
 Para instalá-lo é muito simples, se estiver em uma distribuição baseada em Debian (Ubuntu, Linux Mint, etc) abra do terminal e execute:
 ```
