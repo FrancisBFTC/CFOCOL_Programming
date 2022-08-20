@@ -1,3 +1,6 @@
+#ifndef __CFOCOL__
+#define __CFOCOL__ 
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
@@ -529,6 +532,6 @@ void ReturnCommand(int *i, int *j){
 	ClearAll(j, Line, charsNum);
 }
 
-
+#endif
 
 
